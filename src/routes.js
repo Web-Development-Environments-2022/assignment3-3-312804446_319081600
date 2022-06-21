@@ -8,12 +8,12 @@ const routes = [
     component: Main,
   },
   {
-    path: "/register",
+    path: "/Register",
     name: "register",
     component: () => import("./pages/RegisterPage"),
   },
   {
-    path: "/login",
+    path: "/Login",
     name: "login",
     component: () => import("./pages/LoginPage"),
   },
@@ -22,6 +22,19 @@ const routes = [
     name: "search",
     component: () => import("./pages/SearchPage"),
   },
+  /*//////////////////////////////
+  {
+    path: "/recipe/guest/search",
+    name: "search",
+    component: () => import("./pages/SearchPage"),
+  },
+  {
+    path: "/users/search",
+    name: "search",
+    component: () => import("./pages/SearchPage"),
+  },
+  //////////////////////////////*/
+
   {
     path: "/recipe/:recipeId",
     name: "recipe",
@@ -32,6 +45,33 @@ const routes = [
     name: "notFound",
     component: NotFound,
   },
+  ///////////////add the router in the pages///////////
+  {
+    path: "/About",
+    name: "About",
+    component: () => import("./pages/AboutPage"),
+  },
+  {
+    path: "/users/familyRecipes",
+    name: "FamilyRecipes",
+    component: () => import("./pages/FamilyRecipesPage"),
+  },
+  {
+    path: "/users/MyRecipes",
+    name: "MyRecipseRecipes",
+    component: () => import("./pages/MyRecipesPage"),
+  },
+  
+  {
+    path: "/users/favorite",
+    name: "FavoritesPage",
+    component: () => import("./pages/FavoritesPage"),
+  },
+ // {
+  //  path: "/Logout",
+ //   name: "logout",
+ //   component: () => import("./pages/LoginPage"), //??????????????????????????
+//  },
 ];
 
 export default routes;
