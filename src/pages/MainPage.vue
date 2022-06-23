@@ -4,8 +4,10 @@
     <RecipePreviewList title="Randome Recipes" class="RandomRecipes center" />
     <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
     {{ !$root.store.username }}
-    <RecipePreviewList
+   <!--:class is short for v-bind:class  -->
+   <RecipePreviewList
       title="Last Viewed Recipes"
+      
       :class="{
         RandomRecipes: true,
         blur: !$root.store.username,
@@ -20,7 +22,6 @@
     </div>-->
   </div>
 </template>
-
 <script>
 import RecipePreviewList from "../components/RecipePreviewList";
 export default {

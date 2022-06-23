@@ -91,7 +91,7 @@
       </b-form-group>
 
       <b-button type="reset" variant="danger">Reset</b-button>
-      <b-button
+      <b-button @click="Register"
         type="submit"
         variant="primary"
         style="width:250px;"
@@ -184,7 +184,6 @@ export default {
         const response = await this.axios.post(
           // "https://test-for-3-2.herokuapp.com/user/Register",
           this.$root.store.server_domain + "/Register",
-
           {
             username: this.form.username,
             firstname: this.form.firstname,
@@ -195,6 +194,7 @@ export default {
             email: this.form.email,
           }
         );
+        // moves to login rout right after registration 
         this.$router.push("/login");
         // console.log(response);
       } catch (err) {

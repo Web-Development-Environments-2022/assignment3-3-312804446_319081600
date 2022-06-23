@@ -10,8 +10,15 @@
         <router-link :to="{ name: 'login' }">Login</router-link>|
       </span>
       <span v-else>
+        <select name="format" id="format" v-on:change="changeRoute($event)">
+          <option ></option>
+          <option value="favorite" >favorite</option>
+          <option value="MyRecipes">MyRecipes</option>
+          <option value="familyRecipes">familyRecipes</option>
+        </select>
         {{ $root.store.username }}: <button @click="Logout">Logout</button>|
       </span>
+ 
     </div>
     <router-view />
   </div>
@@ -28,6 +35,10 @@ export default {
       this.$router.push("/").catch(() => {
         this.$forceUpdate();
       });
+    },
+    changeRoute(e) {
+      this.$router.push("/users/" + e.target.value);
+      
     }
   }
 };
