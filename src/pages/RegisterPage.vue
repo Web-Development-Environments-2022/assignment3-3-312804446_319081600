@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="contaihostner">
     <h1 class="title">Register</h1>
     <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
       <b-form-group
@@ -187,7 +187,12 @@ export default {
 
           {
             username: this.form.username,
-            password: this.form.password
+            firstname: this.form.firstname,
+            lastname: this.form.lastname,
+            country: this.form.country,
+            password: this.form.password,
+            confirmation_password: this.form.confirmation_password,
+            email: this.form.email,
           }
         );
         this.$router.push("/login");
