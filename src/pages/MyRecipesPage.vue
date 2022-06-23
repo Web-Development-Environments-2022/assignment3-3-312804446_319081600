@@ -1,6 +1,7 @@
 <template>
-  <div>
-    
+    <div class="container">
+      <h1 class="title">My Recipes</h1>
+      <FavoriteRecipePreviewList title="Favorite Recipes" class="FavoriteRecipes center" />
   </div>
 </template>
 
