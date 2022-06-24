@@ -91,7 +91,8 @@
       </b-form-group>
 
       <b-button type="reset" variant="danger">Reset</b-button>
-      <b-button @click="Register"
+      <!-- <b-button @click="Register" -->
+      <b-button
         type="submit"
         variant="primary"
         style="width:250px;"

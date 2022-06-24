@@ -1,21 +1,28 @@
 <template>
   <div class="container">
     <h1 class="title">Main Page</h1>
-    <RecipePreviewList title="Randome Recipes" class="RandomRecipes center" />
+    <!-- <RecipePreviewList title="Randome Recipes" class="RandomRecipes center" /> -->
     <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
     <!-- this is the false above ths title of last viewed -->
     {{ !$root.store.username }}
    <!--:class is short for v-bind:class  -->
-   <RecipePreviewList
+   <!-- <LastWatchedRecipePreviewList
       title="Last Viewed Recipes"
-      
       :class="{
         RandomRecipes: true,
         blur: !$root.store.username,
         center: true
       }"
       disabled
-    ></RecipePreviewList>
+    ></LastWatchedRecipePreviewList> -->
+     <LastWatchedRecipePreviewList
+      title="Last Viewed Recipes"
+       :class="{
+        // RandomRecipes: true,
+        blur: !$root.store.username,
+        center: true
+      }"
+    ></LastWatchedRecipePreviewList>
     <!-- <div
       style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);"
     >
@@ -24,10 +31,13 @@
   </div>
 </template>
 <script>
-import RecipePreviewList from "../components/RecipePreviewList";
+// import RecipePreviewList from "../components/RecipePreviewList";
+import LastWatchedRecipePreviewList from "../components/LastWatchedRecipePreviewList";
+
 export default {
   components: {
-    RecipePreviewList
+    // RecipePreviewList
+    LastWatchedRecipePreviewList
   }
 };
 </script>

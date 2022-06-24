@@ -42,7 +42,8 @@ export default {
         );
 
         // console.log(response);
-        const recipes = response.data.results;
+        // const recipes = response.data.results;
+        const recipes = response.data;
         this.recipes = [];
         this.recipes.push(...recipes);
         // console.log(this.recipes);
