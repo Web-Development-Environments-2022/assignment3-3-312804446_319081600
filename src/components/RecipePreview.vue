@@ -5,6 +5,7 @@
   >
     <div class="recipe-body">
       <img v-if="image_load" :src="recipe.image" class="recipe-image" />
+      <!-- <img :src="recipe.image" class="recipe-image" /> -->
     </div>
     <div class="recipe-footer">
       <div :title="recipe.title" class="recipe-title">
@@ -13,6 +14,9 @@
       <ul class="recipe-overview">
         <li>{{ recipe.readyInMinutes }} minutes</li>
         <li>{{ recipe.aggregateLikes }} likes</li>
+        <li>{{ recipe.vegan }} vagen</li>
+        <li>{{ recipe.vegetarian }} vageterian</li>
+        <li>{{ recipe.glutenFree }} Gluten Free</li>
       </ul>
     </div>
   </router-link>
@@ -36,29 +40,14 @@ export default {
       required: true
     },
 
-    id: {
-      type: Number,
-      required: true
-    },
+    // id: {
+    //   type: Number,
+    //   required: true
+    // },
     title: {
       type: String,
       required: true
     },
-    readyInMinutes: {
-      type: Number,
-      required: true
-    },
-    image: {
-      type: String,
-      required: true
-    },
-    aggregateLikes: {
-      type: Number,
-      required: false,
-      default() {
-        return undefined;
-      }
-    }
   }
 };
 </script>

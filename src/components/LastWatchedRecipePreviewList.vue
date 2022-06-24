@@ -5,25 +5,27 @@
       <slot></slot>
     </h3>
     <b-row>
-      <b-col v-for="r in recipes" :key="r.id">
-        <LastWatchedRecipePreview class="LastWatchedRecipePreview" :recipe="r" />
+      <b-col v-for="r in recipes" 
+      :key="r.id">
+        <RecipePreview class="recipePreview" :recipe="r" :title="title" />
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import LastWatchedRecipePreview from "./LastWatchedRecipePreview.vue";
+import RecipePreview from "./RecipePreview.vue";
 export default {
   name: "LastWatchedRecipePreviewList",
   components: {
-    LastWatchedRecipePreview
+    RecipePreview
   },
   props: {
     title: {
       type: String,
       required: true
     }
+    
   },
   data() {
     return {

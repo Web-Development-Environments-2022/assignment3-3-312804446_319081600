@@ -20,8 +20,13 @@ export default {
             this.$router.push("/").catch(() => {
                 this.$forceUpdate();
             });
+        },
+        changeRoute(e) {
+          this.$router.push("/users/" + e.target.value);
         }
     },
+
+
     components: { NavBar }
 };
 </script>
