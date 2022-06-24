@@ -1,47 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link :to="{ name: 'main' }">Vue Recipes</router-link>|
-      <router-link :to="{ name: 'search' }">Search</router-link>|
-      <!-- this is the false close to the username -->
-      {{ !$root.store.username }}
-      <span v-if="!$root.store.username">
-        Guest:
-        <router-link :to="{ name: 'register' }">Register</router-link>|
-        <router-link :to="{ name: 'login' }">Login</router-link>|
-      </span>
-      <span v-else>
-        <select name="format" id="format" v-on:change="changeRoute($event)">
-          <option ></option>
-          <option value="favorite" >favorite</option>
-          <option value="MyRecipes">MyRecipes</option>
-          <option value="familyRecipes">familyRecipes</option>
-        </select>
-        {{ $root.store.username }}: <button @click="Logout">Logout</button>|
-      </span>
- 
-    </div>
-    <router-view />
+    <NavBar/>
+    <!-- <router-view class="content"/> -->
   </div>
 </template>
 
 <script>
+import NavBar from "./components/NavBar.vue";
+// import NavBar from ".\components\NavBar.vue"
 export default {
-  name: "App",
-  methods: {
-    Logout() {
-      this.$root.store.logout();
-      this.$root.toast("Logout", "User logged out successfully", "success");
-
-      this.$router.push("/").catch(() => {
-        this.$forceUpdate();
-      });
+    name: "App",
+      components:{
+      NavBar
     },
-    changeRoute(e) {
-      this.$router.push("/users/" + e.target.value);
-      
-    }
-  }
+    methods: {
+        Logout() {
+            this.$root.store.logout();
+            this.$root.toast("Logout", "User logged out successfully", "success");
+            this.$router.push("/").catch(() => {
+                this.$forceUpdate();
+            });
+        }
+    },
+    components: { NavBar }
 };
 </script>
 
@@ -54,6 +35,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-height: 100vh;
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+#app::after{
+  background-image: url("./assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #nav {
