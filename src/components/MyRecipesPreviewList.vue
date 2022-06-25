@@ -5,7 +5,8 @@
       <slot></slot>
     </h3>
     <b-row>
-      <b-col v-for="r in recipes" :key="r.id">
+      <b-col v-for="r in recipes" 
+      :key="r.id">
         <RecipePreview class="recipePreview" :recipe="r" :title="title"/>
       </b-col>
     </b-row>
@@ -15,7 +16,7 @@
 <script>
 import RecipePreview from "./RecipePreview.vue";
 export default {
-  name: "RecipePreviewList",
+  name: "MyRecipesPreviewList",
   components: {
     RecipePreview
   },
@@ -37,11 +38,12 @@ export default {
     async updateRecipes() {
       try {
         const response = await this.axios.get(
-          this.$root.store.server_domain + "/recipes/random",
+          this.$root.store.server_domain + "/users/CreateRecipe", 
           // "https://test-for-3-2.herokuapp.com/recipes/random"
         );
 
         // console.log(response);
+        // const recipes = response.data.results;
         const recipes = response.data;
         this.recipes = [];
         this.recipes.push(...recipes);

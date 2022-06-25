@@ -1,14 +1,17 @@
 <template>
     <div class="container">
-      <h1 class="title">My Recipes</h1>
-      <FavoriteRecipePreviewList title="Favorite Recipes" class="FavoriteRecipes center" />
+      <MyRecipesPreviewList title="My Recipes" class="MyRecipes center" />
   </div>
 </template>
 
 <script>
-export default {
+import MyRecipesPreviewList from "../components/MyRecipesPreviewList";
 
-}
+export default {
+  components: {
+    MyRecipesPreviewList
+  }
+};
 </script>
 
 <style>

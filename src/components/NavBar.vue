@@ -13,7 +13,7 @@
       <span v-else>
         <select name="format" id="format" v-on:change="changeRoute($event)">
           <option ></option>
-          <option value="favorite" >favorite</option>
+          <option value="favorites" >favorites</option>
           <option value="MyRecipes">MyRecipes</option>
           <option value="familyRecipes">familyRecipes</option>
         </select>
@@ -32,6 +32,9 @@ export default {
 
   // },
   methods: {
+    changeRoute(e) {
+      this.$router.push("/users/" + e.target.value);
+    },
     Logout() {
       this.$root.store.logout();
       this.$root.toast("Logout", "User logged out successfully", "success");
@@ -39,6 +42,7 @@ export default {
         this.$forceUpdate();
       });
     },
+
   },
 };
 </script>
