@@ -9,6 +9,7 @@
 import RecipePreviewList from "../components/RecipePreviewList";
 
 export default {
+  name: "familyRecipes",
   components: {
     RecipePreviewList
   }

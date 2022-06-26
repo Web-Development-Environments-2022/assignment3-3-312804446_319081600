@@ -31,6 +31,11 @@ import {
   ToastPlugin,
   LayoutPlugin,
   FormRadioPlugin,
+  ModalPlugin,
+  FormCheckboxPlugin,
+  FormTextareaPlugin,
+
+
 } from "bootstrap-vue";
 [
   FormGroupPlugin,
@@ -44,6 +49,10 @@ import {
   ToastPlugin,
   LayoutPlugin,
   FormRadioPlugin,
+  FormCheckboxPlugin,
+  ModalPlugin,
+  FormTextareaPlugin,
+
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);
 
@@ -76,6 +85,8 @@ Vue.config.productionTip = false;
 
 const shared_data = {
   username: localStorage.username,
+  // user_
+  search_url_: localStorage.search_url_,
   server_domain: "http://localhost:3000",
   login(username) {
     localStorage.setItem("username", username);
@@ -86,6 +97,13 @@ const shared_data = {
     console.log("logout");
     localStorage.removeItem("username");
     this.username = undefined;
+    localStorage.removeItem("search_url_");
+    this.search_url_ = undefined;
+  },
+  last_search(search_url){
+    localStorage.setItem("search_url_", search_url);
+    this.search_url_ = search_url;
+    console.log("last search");
   },
 };
 console.log(shared_data);

@@ -67,6 +67,11 @@ const routes = [
     name: "FavoritesPage",
     component: () => import("./pages/FavoritesPage"),
   },
+  {
+    path: "/users/CreateRecipe",
+    name: "create",
+    component: () => import("./pages/CreateRecipePage"),
+  },
  // {
   //  path: "/Logout",
  //   name: "logout",

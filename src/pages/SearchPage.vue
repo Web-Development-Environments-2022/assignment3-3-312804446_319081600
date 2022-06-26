@@ -91,6 +91,7 @@
     <!-- <RecipePreviewList v-else="$!root.store.username && searchClicked " route_name="/guest{{search_url}}" title="Search Results" class="SearchResults center" /> -->
 <!-- v-if="$root.store.username && searchClicked" -->
  <!-- v-bind:class="{ route_name: search_url_ }" -->
+ <!-- v-if="searchClicked"  -->
 
   </div>
 </template>
@@ -130,6 +131,7 @@ export default {
     this.cuisines.push(...cuisines);
     this.diet.push(...diet);
     this.intolerances.push(...intolerances);
+    this.check_local_storage();
     // console.log($v);
   },
   methods: {
@@ -172,10 +174,16 @@ export default {
     // return extractPreviewRecipeDetails(response.data.results,user_id);
 
     async Search() {
-        try {     
+        try {
+        if(this.searchClicked){
+           this.searchClicked = false;
+        }
         this.search_url_ = await this.url_Search();
         this.searchClicked = true;
-        console.log(search_url_)
+        this.$root.store.last_search(this.search_url_);
+        console.log(this.search_url_)
+        
+
         // moves to login rout right after registration 
         // console.log(response);
       } catch (err) {
@@ -191,16 +199,17 @@ export default {
     },
     onSearch(){
       this.Search()
-      this.search_url= "",
-      this.searchClicked= false,
-      this.onReset()
-    
-
-
+      this.clearOnSearch()
+  
     },
+    clearOnSearch(){
+      this.searchClicked= false,
+      this.search_url_= ""
+    },
+
     onReset() {
-      // this.search_url= "",
-      // this.searchClicked= false,
+      this.search_url_= "",
+      this.searchClicked= false,
       this.form = {
         query: "",
         cuisine: "",
@@ -209,9 +218,16 @@ export default {
         diet: "",
         intolerance:"",
         submitError: undefined,
-      };
-      
-    }
+      }; 
+    },
+    check_local_storage(){      
+      if(this.$root.store.search_url_){
+        this.search_url_=this.$root.store.search_url_;
+        this.searchClicked = true;
+        // this.onSearch();
+         
+        }
+    },
   }
 };
 </script>
