@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="title">Main Page</h1>
-    <RecipePreviewList title="Random Recipes" class="RandomRecipes center" />
+    <!-- <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" /> -->
     <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
     <!-- this is the false above ths title of last viewed -->
     {{ !$root.store.username }}
@@ -15,7 +15,8 @@
       }"
       disabled
     ></LastWatchedRecipePreviewList> -->
-     <LastWatchedRecipePreviewList
+     <RecipePreviewList
+      route_name="/users/lastWatched"
       title="Last Viewed Recipes"
        :class="{
         // RandomRecipes: true,
@@ -32,12 +33,12 @@
 </template>
 <script>
 import RecipePreviewList from "../components/RecipePreviewList";
-import LastWatchedRecipePreviewList from "../components/LastWatchedRecipePreviewList";
+// import LastWatchedRecipePreviewList from "../components/LastWatchedRecipePreviewList";
 
 export default {
   components: {
     RecipePreviewList,
-    LastWatchedRecipePreviewList
+   
   }
 };
 </script>

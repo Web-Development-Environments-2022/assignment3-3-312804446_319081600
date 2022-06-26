@@ -1,15 +1,15 @@
 <template>
     <div class="container">
-      <MyRecipesPreviewList title="My Recipes" class="MyRecipes center" />
+      <RecipePreviewList route_name="/users/CreateRecipe" title="My Recipes" class="MyRecipes center" />
   </div>
 </template>
 
 <script>
-import MyRecipesPreviewList from "../components/MyRecipesPreviewList";
+import RecipePreviewList from "../components/RecipePreviewList";
 
 export default {
   components: {
-    MyRecipesPreviewList
+    RecipePreviewList
   }
 };
 </script>

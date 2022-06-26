@@ -1,15 +1,15 @@
 <template>
     <div class="container">
-      <FavoriteRecipesPreviewList title="Favorite Recipes" class="FavoriteRecipes center" />
+      <RecipePreviewList route_name="/users/favorites" title="Favorite Recipes" class="FavoriteRecipes center" />
   </div>
 </template>
 
 <script>
-import FavoriteRecipesPreviewList from "../components/FavoriteRecipesPreviewList";
+import RecipePreviewList from "../components/RecipePreviewList";
 
 export default {
   components: {
-    FavoriteRecipesPreviewList
+    RecipePreviewList
   }
 };
 </script>

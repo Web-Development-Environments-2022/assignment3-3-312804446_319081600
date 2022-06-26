@@ -1,5 +1,222 @@
 <template>
-  <div class="container">
-    <h1 class="title">Search Page</h1>
+  <div class="contaihostner">
+    <h1 class="title">Search Recipes</h1>
+    <b-form @submit.prevent="onSearch" @reset.prevent="onReset">
+      <b-form-group
+        id="input-group-query"
+        label-cols-sm="3"
+        label="query:"
+        label-for="query"
+      >
+        <b-form-input
+          id="query"
+          v-model="form.query"
+          type="text"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group
+        id="input-group-cuisine"
+        label-cols-sm="3"
+        label="cuisine:"
+        label-for="cuisine"
+      >
+        <b-form-select
+          id="cuisine"
+          v-model="form.cuisine"
+          :options="cuisines"
+        ></b-form-select>
+      </b-form-group>
+
+        <b-form-group
+        id="input-group-diet"
+        label-cols-sm="3"
+        label="diet:"
+        label-for="diet"
+      >
+        <b-form-select
+          id="diet"
+          v-model="form.diet"
+          :options="diet"
+        ></b-form-select>
+      </b-form-group>
+
+        <b-form-group
+        id="input-group-intolerances"
+        label-cols-sm="3"
+        label="intolerances:"
+        label-for="intolerances"
+      >
+        <b-form-select
+          id="intolerances"
+          v-model="form.intolerances"
+          :options="intolerances"
+        ></b-form-select>
+      </b-form-group>
+
+      
+
+    <b-form-group label="number of results:" v-slot="{ ariaDescribedby }">
+      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="5">5</b-form-radio>
+      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="10">10</b-form-radio>
+      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="15">15</b-form-radio>
+    </b-form-group>
+
+    <b-form-group label="sort results by:" v-slot="{ ariaDescribedby }">
+      <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="popularity">popularity</b-form-radio>
+      <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="time">time</b-form-radio>
+    </b-form-group>
+
+      <b-button type="reset" variant="danger">Reset</b-button>
+      <!-- <b-button @click="Register" -->
+      <b-button
+        type="submit"
+        variant="primary"
+        style="width:250px;"
+        class="ml-5 w-75"
+        >search</b-button
+      >
+    </b-form>
+    <b-alert
+      class="mt-2"
+      v-if="form.submitError"
+      variant="warning"
+      dismissible
+      show
+    >
+      Search failed: {{ form.submitError }}
+    </b-alert>
+    
+    <RecipePreviewList v-if="searchClicked" v-bind:route_name="search_url_" title="Search Results" class="SearchResults center" />
+    <!-- <RecipePreviewList v-else="$!root.store.username && searchClicked " route_name="/guest{{search_url}}" title="Search Results" class="SearchResults center" /> -->
+<!-- v-if="$root.store.username && searchClicked" -->
+ <!-- v-bind:class="{ route_name: search_url_ }" -->
+
   </div>
 </template>
+
+<script>
+import cuisines from "../assets/cuisines";
+import diet from "../assets/diet";
+import intolerances from "../assets/intolerances";
+import RecipePreviewList from "../components/RecipePreviewList";
+export default {
+  name: "Search",
+    components: {
+    RecipePreviewList
+  },
+  data() {
+    return {
+      form: {
+        query: "",
+        cuisine: "",
+        selected_sort: "", 
+        selected_num :"",
+        diet: "",
+        intolerance:"",
+        submitError: undefined,     
+      },
+      cuisines: [{ value: null, text: "", disabled: true }],
+      diet: [{ value: null, text: "", disabled: true }],
+      intolerances: [{ value: null, text: "", disabled: true }],
+      searchClicked: false,
+      errors: [],
+      search_url_:"",
+
+    };
+  },
+  mounted() {
+    // console.log("mounted");
+    this.cuisines.push(...cuisines);
+    this.diet.push(...diet);
+    this.intolerances.push(...intolerances);
+    // console.log($v);
+  },
+  methods: {
+    // validateState(param) {
+    //   const { $dirty, $error } = this.$v.form[param];
+    //   return $dirty ? !$error : null;
+    // },    
+    async url_Search(){
+      let search_url="";
+      
+      if(this.$root.store.username){ //is user
+        search_url = "/users/search/?"
+      }
+      else{
+        search_url= "/recipes/guest/search/?"
+      }
+      if(this.form.query !== ""){
+          search_url = search_url + "&query=" + this.form.query
+      }
+      if(this.form.cuisine !== ""){
+          search_url = search_url + "&cuisine=" + this.form.cuisine
+      }
+      if(this.form.diet !== ""){
+          search_url = search_url + "&diet=" + this.form.diet
+      }
+      if(this.form.intolerance !== ""){
+          search_url = search_url + "&intolerance=" + this.form.intolerance
+      }
+      //TODO: check if instructions not emty
+      if(this.form.selected_sort !== ""){
+          search_url = search_url + "&sort=" + this.form.selected_sort
+      }
+      search_url = search_url + "&instructionsRequired=true&addRecipeInformation=true"
+      if(this.form.selected_num !== ""){
+          search_url = search_url + "&number=" + this.form.selected_num
+      }
+
+      return search_url
+    },
+    // return extractPreviewRecipeDetails(response.data.results,user_id);
+
+    async Search() {
+        try {     
+        this.search_url_ = await this.url_Search();
+        this.searchClicked = true;
+        console.log(search_url_)
+        // moves to login rout right after registration 
+        // console.log(response);
+      } catch (err) {
+        // console.log(err.response);
+        // this.form.submitError = err.response.data.message;
+      }
+      // console.log("register method called");
+      // this.$v.form.$touch();
+      // if (this.$v.form.$anyError) {
+      //   return;
+      // }
+      // console.log("register method go");
+    },
+    onSearch(){
+      this.Search()
+      this.search_url= "",
+      this.searchClicked= false,
+      this.onReset()
+    
+
+
+    },
+    onReset() {
+      // this.search_url= "",
+      // this.searchClicked= false,
+      this.form = {
+        query: "",
+        cuisine: "",
+        selected_sort: "", 
+        selected_num :"",
+        diet: "",
+        intolerance:"",
+        submitError: undefined,
+      };
+      
+    }
+  }
+};
+</script>
+<style lang="scss" scoped>
+.container {
+  max-width: 500px;
+}
+</style>

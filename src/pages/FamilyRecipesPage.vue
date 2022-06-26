@@ -1,16 +1,16 @@
 <template>
     <div class="container">
-      <FamilyRecipesPreviewList title="Family Recipes" class="FamilyRecipes center" />
+      <RecipePreviewList route_name="/users/familyRecipes" title="Family Recipes" class="FamilyRecipes center" />
   </div>
 </template>
 
 
 <script>
-import FamilyRecipesPreviewList from "../components/FamilyRecipesPreviewList";
+import RecipePreviewList from "../components/RecipePreviewList";
 
 export default {
   components: {
-    FamilyRecipesPreviewList
+    RecipePreviewList
   }
 };
 </script>

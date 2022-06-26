@@ -23,6 +23,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    route_name:{
+      type: String,
+      required: true    
     }
   },
   data() {
@@ -37,7 +41,8 @@ export default {
     async updateRecipes() {
       try {
         const response = await this.axios.get(
-          this.$root.store.server_domain + "/recipes/random",
+          this.$root.store.server_domain + this.route_name,
+          // {withCredentials: true}
           // "https://test-for-3-2.herokuapp.com/recipes/random"
         );
 

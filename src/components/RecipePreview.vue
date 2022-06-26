@@ -4,8 +4,8 @@
     class="recipe-preview"
   >
     <div class="recipe-body">
-      <img v-if="image_load" :src="recipe.image" class="recipe-image" />
-      <!-- <img :src="recipe.image" class="recipe-image" /> -->
+      <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
+      <img :src="recipe.image" class="recipe-image" />
     </div>
     <div class="recipe-footer">
       <div :title="recipe.title" class="recipe-title">
@@ -24,11 +24,11 @@
 
 <script>
 export default {
-  mounted() {
-    this.axios.get(this.recipe.image).then((i) => {
-      this.image_load = true;
-    });
-  },
+  // mounted() {
+  //   this.axios.get(this.recipe.image).then((i) => {
+  //     this.image_load = true;
+  //   });
+  // },
   data() {
     return {
       image_load: false
@@ -48,6 +48,7 @@ export default {
       type: String,
       required: true
     },
+    
   }
 };
 </script>
