@@ -3,21 +3,44 @@
     :to="{ name: 'recipe', params: { recipeId: recipe.id, route_name: route_name} }"
     class="recipe-preview"
   >
-    <div class="recipe-body">
-      <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
-      <img :src="recipe.image" class="recipe-image" />
-    </div>
-    <div class="recipe-footer">
-      <div :title="recipe.title" class="recipe-title">
-        {{ recipe.title }}
-      </div>
-      <ul class="recipe-overview">
-        <li>{{ recipe.readyInMinutes }} minutes</li>
-        <li>{{ recipe.aggregateLikes }} likes</li>
-        <li>{{ recipe.vegan }} vagen</li>
-        <li>{{ recipe.vegetarian }} vageterian</li>
-        <li>{{ recipe.glutenFree }} Gluten Free</li>
-      </ul>
+
+  <div class="recipe-body">
+      <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+        <b-row no-gutters>
+          <b-col md="6">
+            <b-card-img :src= "recipe.image" alt="Image" class="rounded-0"></b-card-img>
+          </b-col>
+          <b-col md="6">
+            <b-card-body :title= "recipe.title">
+              <b-card-text>
+                <b-list-group align="center">
+                  <dt> Ready in {{ recipe.readyInMinutes }} minutes</dt>
+                  <dt>  {{ recipe.aggregateLikes }} likes</dt>
+                </b-list-group>
+                <!-- <input
+                    v-show="recipe.vegetarian"
+                    type="image"
+                    style=" margin: 0px 5px;"
+                    src="https://icon-library.com/images/vegan-icon/vegan-icon-13.jpg"
+                  />
+                  <input
+                  v-show="!recipe.vegetarian"
+                  type="image"
+                  style=" margin: 0px 5px;"
+                  src="https://icon-library.com/images/vegan-icon/vegan-icon-13.jpg"
+                /> -->
+                  <ul class="recipe-overview">
+                    <li>{{ recipe.vegan }} vagen</li>
+                    <li>{{ recipe.vegetarian }} vageterian</li>
+                    <li>{{ recipe.glutenFree }} Gluten Free</li>
+
+                      
+                  </ul>
+              </b-card-text>
+            </b-card-body>
+          </b-col>
+        </b-row>
+      </b-card>
     </div>
   </router-link>
 </template>

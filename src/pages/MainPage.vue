@@ -1,29 +1,15 @@
 <template>
   <div class="container">
     <h1 class="title">Main Page</h1>
-    <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
+    <!-- <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" /> -->
     <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
     <!-- this is the false above ths title of last viewed -->
-    {{ !$root.store.username }}
-   <!--:class is short for v-bind:class  -->
-   <!-- <LastWatchedRecipePreviewList
-      title="Last Viewed Recipes"
-      :class="{
-        RandomRecipes: true,
-        blur: !$root.store.username,
-        center: true
-      }"
-      disabled
-    ></LastWatchedRecipePreviewList> -->
-     <RecipePreviewList
-      route_name="/users/lastWatched"
-      title="Last Viewed Recipes"
+     <RecipePreviewList route_name="/users/lastWatched" title="Last Viewed Recipes"
        :class="{
         // RandomRecipes: true,
-        blur: !$root.store.username,
+        hide: !$root.store.username,
         center: true
-      }"
-    />
+        }"/>
     <!-- <div
       style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);"
     >
