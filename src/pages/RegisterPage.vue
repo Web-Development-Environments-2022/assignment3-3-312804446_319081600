@@ -2,6 +2,9 @@
   <div class="contaihostner">
     <h1 class="title">Register</h1>
     <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
+      
+      <!-- user name -->
+      
       <b-form-group
         id="input-group-username"
         label-cols-sm="3"
@@ -24,7 +27,44 @@
           Username alpha
         </b-form-invalid-feedback>
       </b-form-group>
+    <!-- firstName -->
+      <b-form-group
+        id="input-group-firstName"
+        label-cols-sm="3"
+        label="first Name:"
+        label-for="firstName"
+        
+      >
+      <b-form-input
+          id="firstName"
+          v-model="$v.form.firstName.$model"
+          type="text"
+          :state="validateState('firstName')"
+        ></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.form.firstName.required">
+          firstName is required
+        </b-form-invalid-feedback>
+      </b-form-group>   
 
+      <!-- firstName -->
+      <b-form-group
+        id="input-group-firstName"
+        label-cols-sm="3"
+        label="last Name:"
+        label-for="lastName"
+      >
+        <b-form-input
+          id="lastName"
+          v-model="$v.form.lastName.$model"
+          type="text"
+          :state="validateState('lastName')"
+        ></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.form.lastName.required">
+          lastName is required
+        </b-form-invalid-feedback>
+      </b-form-group>  
+
+      <!-- country -->
       <b-form-group
         id="input-group-country"
         label-cols-sm="3"
@@ -41,7 +81,30 @@
           Country is required
         </b-form-invalid-feedback>
       </b-form-group>
+    <!-- email -->
 
+      <b-form-group
+        id="input-group-email"
+        label-cols-sm="3"
+        label="email:"
+        label-for="email"
+      >
+        <b-form-input
+          id="email"
+          v-model="$v.form.email.$model"
+          type="email"
+          :state="validateState('email')"
+        ></b-form-input>
+        <b-form-invalid-feedback v-if="!$v.form.email.required">
+          email is required
+        </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-else-if="!$v.form.email.validEmail">
+          'Valid email required.'
+        </b-form-invalid-feedback>
+      </b-form-group>      
+
+
+      <!-- Password -->
       <b-form-group
         id="input-group-Password"
         label-cols-sm="3"
@@ -62,12 +125,13 @@
           For that, your password should be also:
         </b-form-text>
         <b-form-invalid-feedback
-          v-if="$v.form.password.required && !$v.form.password.length"
+          v-if="$v.form.password.required && !$v.form.password.length && !$v.form.password.specialChar && !$v.form.password.digit"
         >
-          Have length between 5-10 characters long
+          Have length between 5-10 characters long and least one special character
         </b-form-invalid-feedback>
       </b-form-group>
 
+      <!-- confirmedPassword -->
       <b-form-group
         id="input-group-confirmedPassword"
         label-cols-sm="3"
@@ -160,9 +224,23 @@ export default {
       country: {
         required
       },
+      firstName: {
+        required,
+      },
+      lastName:{
+        required
+      },
+      email:{
+        required,
+        email,
+      },
       password: {
         required,
-        length: (p) => minLength(5)(p) && maxLength(10)(p)
+        length: (p) => minLength(5)(p) && maxLength(10)(p),
+        specialChar: (p) => p && /[^A-Za-z0-9]/.test(p), 
+        digit: (p) => p && /\d/.test(p), 
+        
+
       },
       confirmedPassword: {
         required,

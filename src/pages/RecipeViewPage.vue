@@ -1,125 +1,116 @@
 <template>
-  <div class="container">
-    <div v-if="recipe">
-      <div class="recipe-header mt-3 mb-4">
-        <h1>{{ recipe.title }}</h1>
-        <img :src="recipe.image" class="center" />
+    <div class="recipe-footer">
+      <div :title="recipe.title" class="recipe-title">
+        {{ recipe.title }}
       </div>
       <div class="recipe-body">
-        <div class="wrapper">
-          <div class="wrapped">
-            <div class="mb-3">
-              <div>Ready in {{ recipe.readyInMinutes }} minutes</div>
-              <div>Likes: {{ recipe.aggregateLikes }} likes</div>
-            </div>
-            Ingredients:
-            <ul>
-              <li
-                v-for="(r, index) in recipe.extendedIngredients"
-                :key="index + '_' + r.id"
-              >
-                {{ r.original }}
-              </li>
-            </ul>
-          </div>
-          <div class="wrapped">
-            Instructions:
-            <ol>
-              <li v-for="s in recipe._instructions" :key="s.number">
-                {{ s.step }}
-              </li>
-            </ol>
-          </div>
-        </div>
+          <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
+          <img :src="recipe.image" class="recipe-image" />
       </div>
-      <!-- <pre>
-      {{ $route.params }}
-      {{ recipe }}
-    </pre
-      > -->
-    </div>
+      <ul class="recipe-overview">
+        <li>{{ recipe.readyInMinutes }} minutes</li>
+        <li>{{ recipe.aggregateLikes }} likes</li>
+        <li>{{ recipe.vegan }} vagen</li>
+        <li>{{ recipe.vegetarian }} vageterian</li>
+        <li>{{ recipe.glutenFree }} Gluten Free</li>
+        <li> instructions ----> {{ instructions }}</li>
+        <!-- <li>{{ recipe.instruction }} instruction</li> -->
+        <li>{{ recipe.is_favorite }} is_favorite</li>
+        <li>{{ recipe.is_watched }} is_watched</li>
+        <li>{{ recipe.servings }} servings</li>
+
+        <!-- <li>{{ recipe.extendedIngredients }} extendedIngredients</li> -->
+
+      </ul>
   </div>
 </template>
 
 <script>
+// import RecipePreview from "./RecipePreview.vue";
 export default {
+  name: "Recipeview",
+  // components: {
+  //   RecipePreview
+  // },
+  // props: {
+  //   title: {
+  //     type: String,
+  //     required: true
+  //   },
+  //   route_name:{
+  //     type: String,
+  //     required: true    
+  //   }
+  // },
   data() {
     return {
-      recipe: null
+      recipe: {},
+      instructions:"",
+      recipe_id:""
+
     };
   },
-  async created() {
-    try {
-      let response;
-      // response = this.$route.params.response;
+  mounted() {
+    this.updateRecipes();
+  },
+  methods: {
+    async updateRecipes() {
 
       try {
-        response = await this.axios.get(
-          // "https://test-for-3-2.herokuapp.com/recipes/info",
-          this.$root.store.server_domain + "/recipes/info",
-          {
-            params: { id: this.$route.params.recipeId }
+        // console.log(this.$route.path)
+        let split_route = (((this.$route.path).split("/")[2]).split("%2F"))[2]
+        let split_recipe_id = ((this.$route.path).split("/"))[4]
+
+         if(split_route == "lastWatched" || split_route =="random" || split_route =="favorites" || split_route =="search"){
+          const response = await this.axios.get(
+          this.$root.store.server_domain + "/recipes/FullRecipeDetailsAPI/" + split_recipe_id)
+          let array_steps = response.data.instructions
+          // console.log(response.data.instructions);
+          for (const analyze of array_steps){
+            for(const ste of analyze.steps){
+              this.instructions = this.instructions + ste.step
+            }
           }
-        );
+          console.log(response);
+          this.recipe= response.data;
+          this.recipe_id= response.data.id;
+          
+        }
+        else{
+          // console.log("else:")
+          const response = await this.axios.get(
+          this.$root.store.server_domain + "/users/FullRecipeDetailsDB/" + split_recipe_id)
+          console.log(response);
 
-        // console.log("response.status", response.status);
-        if (response.status !== 200) this.$router.replace("/NotFound");
+          this.recipe= response.data[0];
+          this.instructions = response.data[0].instructions;
+          this.recipe_id= response.data[0].id;
+        }
+        //add to last watch table
+        if(this.$root.store.username){ //is user
+          const response = await this.axios.post( 
+          this.$root.store.server_domain + "/users/lastWatched/",
+          {
+            recipe_id: this.recipe_id,
+          }
+          );
+          console.log(response)
+        }
+
+
       } catch (error) {
-        console.log("error.response.status", error.response.status);
-        this.$router.replace("/NotFound");
-        return;
+        console.log(error);
       }
-
-      let {
-        analyzedInstructions,
-        instructions,
-        extendedIngredients,
-        aggregateLikes,
-        readyInMinutes,
-        image,
-        title
-      } = response.data.recipe;
-
-      let _instructions = analyzedInstructions
-        .map((fstep) => {
-          fstep.steps[0].step = fstep.name + fstep.steps[0].step;
-          return fstep.steps;
-        })
-        .reduce((a, b) => [...a, ...b], []);
-
-      let _recipe = {
-        instructions,
-        _instructions,
-        analyzedInstructions,
-        extendedIngredients,
-        aggregateLikes,
-        readyInMinutes,
-        image,
-        title
-      };
-
-      this.recipe = _recipe;
-    } catch (error) {
-      console.log(error);
     }
   }
 };
 </script>
 
-<style scoped>
-.wrapper {
-  display: flex;
-}
-.wrapped {
-  width: 50%;
-}
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-/* .recipe-header{
 
-} */
+
+
+<style scoped>
+
+
 </style>
+>
