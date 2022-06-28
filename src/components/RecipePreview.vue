@@ -13,7 +13,7 @@
           <b-col md="6">
             <b-card-body :title= "recipe.title">
               <b-card-text>
-                <b-list-group align="center">
+                <b-list-group >
                   <dt> Ready in {{ recipe.readyInMinutes }} minutes</dt>
                   <dt>  {{ recipe.aggregateLikes }} likes</dt>
                 </b-list-group>

@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <h1 class="title">Login</h1>
+    <h1 class="title text-center">Login</h1>
     <b-form @submit.prevent="onLogin">
       <b-form-group
         id="input-group-Username"
         label-cols-sm="3"
         label="Username:"
         label-for="Username"
+        class="login-field"
       >
         <b-form-input
           id="Username"
@@ -24,6 +25,8 @@
         label-cols-sm="3"
         label="Password:"
         label-for="Password"
+        class="login-field"
+
       >
         <b-form-input
           id="Password"
@@ -129,8 +132,42 @@ export default {
   }
 };
 </script>
+
+
+
 <style lang="scss" scoped>
 .container {
-  max-width: 400px;
+
+  max-width: 550px;
+  // background-color: #EFEFEF;
+  border-radius: 25px;
+  // border-style: solid;
+  // border-color: darkgrey;
+  // padding: 20px;
+  max-width: 500px;
+}
+
+.title {
+  color: #2f4f4f;
+  font-weight: bolder;
+}
+.title {
+  font-weight: bolder;
+  color: #2f4f4f;
+}
+.login-field {
+    color: black;
+  // font-weight: bolder;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    word-spacing: -0.4px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 </style>
+

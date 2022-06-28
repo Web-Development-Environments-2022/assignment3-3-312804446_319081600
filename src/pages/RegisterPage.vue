@@ -1,6 +1,6 @@
 <template>
-  <div class="contaihostner">
-    <h1 class="title">Register</h1>
+  <div class="container">
+    <h1 class="title text-center">Register</h1>
     <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
       
       <!-- user name -->
@@ -10,6 +10,8 @@
         label-cols-sm="3"
         label="Username:"
         label-for="username"
+        class="register-field"
+
       >
         <b-form-input
           id="username"
@@ -33,6 +35,7 @@
         label-cols-sm="3"
         label="first Name:"
         label-for="firstName"
+        class="register-field"
         
       >
       <b-form-input
@@ -52,6 +55,8 @@
         label-cols-sm="3"
         label="last Name:"
         label-for="lastName"
+        class="register-field"
+
       >
         <b-form-input
           id="lastName"
@@ -70,6 +75,8 @@
         label-cols-sm="3"
         label="Country:"
         label-for="country"
+        class="register-field"
+
       >
         <b-form-select
           id="country"
@@ -88,6 +95,8 @@
         label-cols-sm="3"
         label="email:"
         label-for="email"
+        class="register-field"
+
       >
         <b-form-input
           id="email"
@@ -110,6 +119,8 @@
         label-cols-sm="3"
         label="Password:"
         label-for="password"
+        class="register-field"
+
       >
         <b-form-input
           id="password"
@@ -137,6 +148,8 @@
         label-cols-sm="3"
         label="Confirm Password:"
         label-for="confirmedPassword"
+        class="register-field"
+
       >
         <b-form-input
           id="confirmedPassword"
@@ -307,8 +320,40 @@ export default {
   }
 };
 </script>
+
+
 <style lang="scss" scoped>
 .container {
+
+  max-width: 550px;
+  // background-color: #EFEFEF;
+  border-radius: 25px;
+  // border-style: solid;
+  // border-color: darkgrey;
+  // padding: 20px;
   max-width: 500px;
+}
+
+.title {
+  color: #2f4f4f;
+  font-weight: bolder;
+}
+.title {
+  font-weight: bolder;
+  color: #2f4f4f;
+}
+.register-field {
+  color: black;
+  // font-weight: bolder;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    word-spacing: -0.4px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 </style>
