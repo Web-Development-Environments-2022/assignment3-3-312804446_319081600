@@ -7,7 +7,7 @@
         <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
       </b-col>
       <b-col  >
-        <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
+        <router-link v-if="!$root.store.username" to="/login" tag="button" pill style="padding: 15px 15px; background-color: #F19CBB;border-color: #F19CBB;width:90%;font-weight: bold;color: #080807;">Please log in to get the latest recipes you watched</router-link>
         <!-- this is the false above ths title of last viewed -->
         <RecipePreviewList route_name="/users/lastWatched" title="Last Viewed Recipes" class="LastViewedRecipes center"
           :class="{
