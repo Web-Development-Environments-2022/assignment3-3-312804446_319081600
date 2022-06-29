@@ -43,9 +43,7 @@
 
       <b-button
         type="submit"
-        variant="primary"
-        style="width:100px;display:block;"
-        class="mx-auto w-100"
+        class="btn-warning"
         pill
         >Login</b-button
       >
@@ -169,6 +167,16 @@ export default {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+}
+
+.btn-warning{
+  background-color: #F19CBB;
+  border-color: #F19CBB;
+  font-weight: bold;
+  color: #080807;
+  width:100%;
+  display:block;
+
 }
 </style>
 

@@ -56,7 +56,7 @@
         </b-form-group>
 
         <b-form-group>
-          <button @click="add_ingredient">ADD</button>
+          <b-button class="btn-info" pill style="background-color: #F2975B;border-color: #F2975B;font-weight: bold;color: #080807;" @click="add_ingredient">ADD</b-button>
 
         </b-form-group>
         </b-col>
@@ -87,9 +87,10 @@
         vegetarian 
     </b-form-checkbox>                  
     <b-row>
-        <b-col lg="3" class="pb-2"><b-button type="submit" pill variant="success" >Create</b-button></b-col>
-        <b-col lg="3" class="pb-2"><b-button type="reset" pill variant="danger">Cancel</b-button></b-col>
-        
+
+      <b-col lg="3" class="pb-2"><b-button pill type="reset" style="background-color: #5D6166;border-color: #5D6166;font-weight: bold;color: #080807;" class="btn-warning">Cancel</b-button></b-col>
+      <b-col lg="3" class="pb-2"><b-button pill type="submit" style="background-color: #F19CBB;border-color: #F19CBB;width:350%;font-weight: bold;color: #080807;" class="btn-primary">Create</b-button></b-col>
+              
     </b-row>
     <!-- <b-button @click="Register" -->
     </b-form>            
@@ -217,10 +218,5 @@ export default {
 </script>
 
 <style>
-.button-create{
-  color:#FAEBD7;
-}
-.button-create:hover{
-  color:#9aaeb6;
-}
+
 </style>

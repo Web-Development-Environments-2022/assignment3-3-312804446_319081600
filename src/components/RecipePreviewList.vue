@@ -3,10 +3,10 @@
     <br/>
     <br/>
     <center>
-      <h1 class="big-title text-center" >
-        {{ title }}:
+      <h3 class="big-title text-center" >
+        {{ title }}
       <slot></slot>
-    </h1>
+    </h3>
     </center>
    <center>
  

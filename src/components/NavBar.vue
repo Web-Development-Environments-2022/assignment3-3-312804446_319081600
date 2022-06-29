@@ -62,7 +62,12 @@
       <!-- Logout -->
       <span v-else>
          <b-nav-item>
-          Hello {{ $root.store.username }}:  <button @click="Logout" id="button"><b>Logout</b></button>
+         <b-row> 
+          <b-col>
+            <b-navbar-item><h3>Hello {{ $root.store.username }}   </h3></b-navbar-item>  
+         </b-col> 
+         <router-link v-b-modal.modal-1 id="modal-1" tag="b-nav-item" to="/" @click.native="Logout()" ><b>Logout</b></router-link></b-row>
+          <!-- <button @click="Logout" id="button"><b>Logout</b></button> -->
          </b-nav-item>
       </span>
     </b-navbar-nav>

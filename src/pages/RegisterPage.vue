@@ -169,16 +169,12 @@
         </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button type="reset" pill variant="danger">Reset</b-button>
+      <b-button class="btn-primary" type="reset" pill >Reset</b-button>
       <!-- <b-button @click="Register" -->
       <b-button
         pill type="submit"
-        
-        style="width:250px;"
         class="btn-warning"
-        
-        >Register</b-button
-      >
+        >Register</b-button>
       <div class="mt-2">
         You have an account already?
         <router-link to="login"> Log in here</router-link>
@@ -189,14 +185,10 @@
       v-if="form.submitError"
       pill variant="warning"
       dismissible
-      show
-    >
+      show>
       Register failed: {{ form.submitError }}
     </b-alert>
-    <!-- <b-card class="mt-3 md-3" header="Form Data Result">
-      <pre class="m-0"><strong>form:</strong> {{ form }}</pre>
-      <pre class="m-0"><strong>$v.form:</strong> {{ $v.form }}</pre>
-    </b-card> -->
+
   </div>
 </template>
 
@@ -344,11 +336,19 @@ export default {
   font-weight: bolder;
 }
 .btn-warning{
+  width:55%;
+  padding: 15px 20px;
   background-color: #F19CBB;
   border-color: #F19CBB;
   font-weight: bold;
-  color: #f8e1c7;
-
+  color: #080807;
+  margin: 15px 15px 20px 80px;
+}
+.btn-primary{
+  width:20%;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #080807;
 }
 .register-field {
   color: black;

@@ -82,12 +82,11 @@
         <b-button
           id="button-search"
           pill type="submit"
-          style="width:350px;margin: 50px 0px"
-          squared variant="primary"
+          class="btn-warning"
           >search</b-button >
       </b-col>      
       <b-col  cols="2" md="2">
-        <b-button id="button-reset" pill type="reset" squared variant="danger" style="width:100px;margin: 50px 0px" >Reset</b-button>
+        <b-button class="btn-primary" pill type="reset" >Reset</b-button>
         </b-col >
       </b-row>
     </b-form>
@@ -255,7 +254,7 @@ export default {
 }
 .container {
 
-  max-width: 550px;
+  
   // background-color: #EFEFEF;
   border-radius: 25px;
   // border-style: solid;
@@ -265,12 +264,21 @@ export default {
 }
 
 
-
-.button-reset{
-  color: #2f4f4f;
+.btn-warning{
+  width:65%;
+  padding: 15px 15px;
+  background-color: #F19CBB;
+  border-color: #F19CBB;
+  font-weight: bold;
+  color: #080807;
+  margin: 15px 15px 20px 90px;
 }
-.button-search{
-  color: #F19CBB;
+.btn-primary{
+  width:95%;
+  padding: 15px 15px;
+  font-weight: bold;
+  color: #080807;
+  margin: 15px 5px 20px 15px;
 }
 .search-field {
   color: black;
