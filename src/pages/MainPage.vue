@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
     <br/>
     <br/>
@@ -11,7 +10,6 @@
     <b-row>
       <b-col >
     <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
-
       </b-col>
       <b-col >
          <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
@@ -24,17 +22,9 @@
         }"/>
       </b-col>
     </b-row>
-
-
-
-   
-    <!-- <div
-      style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);"
-    >
-      Centeredasdasdad
-    </div>-->
   </div>
 </template>
+
 <script>
 import RecipePreviewList from "../components/RecipePreviewList";
 // import LastWatchedRecipePreviewList from "../components/LastWatchedRecipePreviewList";
@@ -52,7 +42,7 @@ export default {
   margin: 0px -350px 0px;
 }
 .LastViewedRecipes{
-  margin: 0px 350px 0px;
+  margin: 0px -50px 0px;
 
 }
 .blur {
@@ -64,4 +54,5 @@ export default {
   pointer-events: none;
   cursor: default;
 }
+
 </style>

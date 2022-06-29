@@ -15,20 +15,28 @@
       <ul class="recipe-overview">
         <b-list-group >
           <dt>{{ recipe.readyInMinutes }} minutes to prepare</dt>
-          <dt>{{ recipe.aggregateLikes }} likes this recipe</dt>
-          <dt v-if="recipe.vegan">Vegan</dt>
-          <dt v-if="recipe.vegetarian"> Vegeterian</dt>
-          <dt v-if="recipe.glutenFree"> Gluten Free</dt>
-          <!-- <li>{{ recipe.instruction }} instruction</li> -->
-          <dt v-if="recipe.is_favorite">Favorite Recipe</dt>
-          <dt v-if="recipe.is_watched">Viewed Recipe</dt>
           <dt>{{ recipe.servings }} servings</dt>
-          <center>
-             <b-button v-if="API_route" id="favoritesButton" size="sm" @click="AddToFavorites" class="w-15 h-20"> add to favorites</b-button>
+          <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 30px"/> this recipe</dt>
+          <dt v-if="recipe.vegan"><img src="../assets/vegan.png" style="width: 30px"/>   Vegan</dt>
+          <dt v-if="recipe.vegetarian"><img src="../assets/vegetarian.png" style="width: 30px"/> Vegeterian</dt>
+          <dt v-if="recipe.glutenFree"><img src="../assets/gluten-free.png" style="width: 30px"/> Gluten Free</dt>
+          <dt v-if="recipe.is_favorite"><img src="../assets/star.png" style="width: 30px"/>  Favorite Recipe</dt>
+          <dt v-if="recipe.is_watched"><img src="../assets/check.png" style="width: 25px"/>   Viewed Recipe</dt>
+          <br/>
+         <center>
+             <b-button v-if="API_route" id="favoritesButton" size="sm" @click="AddToFavorites" class="btn-warning w-15 h-20"> add to favorites</b-button>
           </center>
         </b-list-group >
+        <!-- extendedIngredients -->
+         <br/>
+        <h3 id="IngredientsTitle">Ingredients</h3> <br/>
+        <center>
+        <div v-for="ing in recipe.extendedIngredients" :key="ing.name">
+          {{ing.amount }} {{ing.name }}
+        </div>
+          </center>
         <br/>
-        <div id="instructions"> <h3 id="InstructionsTitle">Instructions</h3> <br/>
+        <div id="instructions" > <h3 id="InstructionsTitle">Instructions</h3> <br/>
            {{ instructions }}</div>
       </ul>
   </div>
@@ -68,9 +76,19 @@ export default {
               this.instructions = this.instructions + ste.step
             }
           }
-          console.log(response);
-          this.recipe= response.data;
-          this.recipe_id= response.data.id;        
+        console.log(response);
+        this.recipe= response.data;
+        this.recipe_id= response.data.id;    
+        //add to last watch table
+        if(this.$root.store.username){ //is user
+          const response = await this.axios.post( 
+          this.$root.store.server_domain + "/users/lastWatched/",
+          {
+            recipe_id: this.recipe_id,
+          }
+          );
+          console.log(response)
+        }    
         }
         else{
           // console.log("else:")
@@ -82,16 +100,7 @@ export default {
           this.instructions = response.data[0].instructions;
           this.recipe_id= response.data[0].id;
         }
-        //add to last watch table
-        if(this.$root.store.username){ //is user
-          const response = await this.axios.post( 
-          this.$root.store.server_domain + "/users/lastWatched/",
-          {
-            recipe_id: this.recipe_id,
-          }
-          );
-          console.log(response)
-        }
+     
       } catch (error) {
         console.log(error);
       }
@@ -128,11 +137,21 @@ export default {
   color: #2f4f4f;
   text-decoration-line: underline;
 }
+#IngredientsTitle{
+   font-weight: bolder;
+  color: #2f4f4f;
+  text-decoration-line: underline;
+}
  #instructions{
   max-width: 800px; 
   width:800px; 
  }
-
+.btn-warning{
+  background-color: #F19CBB;
+  border-color: #F19CBB;
+  font-weight: bold;
+ color: #f8e1c7;
+}
  .recipe-footer{
 background: #F19CBB;
 background: -moz-linear-gradient(-45deg, #F19CBB 0%, #F9CB95 53%, #F19CBB 100%);

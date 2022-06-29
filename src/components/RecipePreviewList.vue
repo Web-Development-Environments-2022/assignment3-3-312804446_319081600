@@ -18,7 +18,7 @@
     </center>
     <center>
     <b-row v-for="r in recipes" :key="r.id">
-      <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name"/>
+      <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name" style="margin-left:150px;"/>
     </b-row>
      </center>
   </b-container>
