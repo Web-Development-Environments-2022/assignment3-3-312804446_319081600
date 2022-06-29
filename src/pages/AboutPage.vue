@@ -1,17 +1,18 @@
 <template>
+  
   <div class="container text-center">
-    
     <b>
       <br/>
       <br/>
-      <h1><b>About</b></h1>
+      
+      <h1 class="big-title"><b>About</b></h1>
       We are Liel and Keren. Third Year Students for Software and Information Systems Engineering
       <br/>
       <br/>
-      <h2>
+      <h4 class="title">
         Tasty Recipes:
 
-      </h2>
+      </h4>
       
       <p>
         On the site, you will find various recipes taken from an external API called spoonacular.
@@ -25,7 +26,7 @@
         Hope you enjoy :)
       </p>
       <br/>
-      <h2>Our previous project:</h2>
+      <h4 class="title">Our previous project:</h4>
       Pacman game where you can play and have fun
 
       <br/>
@@ -39,7 +40,7 @@
       <br/>
       <br/>
       <br/>
-      <h2>Contact us</h2>
+      <h4 class="title">Contact us</h4>
       lielbin@post.bgu.ac.il
       <br/>
       diank@post.bgu.ac.il
@@ -61,7 +62,15 @@ export default {
   border-radius: 25px;
   max-width: 850px;
 }
-.h2{
-  color:blue
+.title{
+  color:#F2975B;
+  font-weight: bolder;
+
+}
+.big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+  font-weight: bolder;
 }
 </style>

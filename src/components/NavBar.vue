@@ -24,8 +24,7 @@
     <!-- About -->
     <b-navbar-nav>
       <router-link tag="b-nav-item" to="/About"
-        ><b>About</b></router-link
-      >
+        ><b>About</b></router-link>
     </b-navbar-nav>
 
     <!-- Registred user  -->
@@ -63,7 +62,7 @@
       <!-- Logout -->
       <span v-else>
          <b-nav-item>
-          Hello {{ $root.store.username }}:<button @click="Logout" id="button"><b>Logout</b></button>
+          Hello {{ $root.store.username }}:  <button @click="Logout" id="button"><b>Logout</b></button>
          </b-nav-item>
       </span>
     </b-navbar-nav>

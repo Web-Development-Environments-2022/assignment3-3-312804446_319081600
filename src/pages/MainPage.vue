@@ -54,5 +54,15 @@ export default {
   pointer-events: none;
   cursor: default;
 }
+.title{
+  color:#F2975B;
+  font-weight: bolder;
+
+}
+.big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+}
 
 </style>

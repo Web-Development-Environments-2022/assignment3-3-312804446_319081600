@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="title text-center">Login</h1>
+    <br/>
+    <br/>
+    <h1 class="big-title text-center">Login</h1>
     <b-form @submit.prevent="onLogin">
       <b-form-group
         id="input-group-Username"
@@ -148,13 +150,11 @@ export default {
   max-width: 500px;
 }
 
-.title {
-  color: #2f4f4f;
+.big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
   font-weight: bolder;
-}
-.title {
-  font-weight: bolder;
-  color: #2f4f4f;
 }
 .login-field {
     color: black;

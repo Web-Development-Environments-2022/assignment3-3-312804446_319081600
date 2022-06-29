@@ -3,7 +3,7 @@
     <br/>
     <br/>
     <center>
-      <h1 class="title text-center" style="  color: #2f4f4f; font-weight: bolder;">
+      <h1 class="big-title text-center" >
         {{ title }}:
       <slot></slot>
     </h1>
@@ -78,5 +78,13 @@ export default {
 <style lang="scss" scoped>
 .container {
   min-height: 400px;
+}
+
+
+.big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+  font-weight: bolder;
 }
 </style>

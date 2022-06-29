@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="title text-center">Search Recipes</h1>
+    <br/>
+    <br/>
+    <h1 class="big-title text-center">Search Recipes</h1>
     <b-form @submit.prevent="onSearch" @reset.prevent="onReset">
       <b-form-group
         id="input-group-query"
@@ -262,14 +264,8 @@ export default {
   max-width: 900px;
 }
 
-.title {
-  color: #2f4f4f;
-  font-weight: bolder;
-}
-.title {
-  font-weight: bolder;
-  color: #2f4f4f;
-}
+
+
 .button-reset{
   color: #2f4f4f;
 }
@@ -289,6 +285,12 @@ export default {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+}
+.big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+  font-weight: bolder;
 }
 </style>
 
