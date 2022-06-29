@@ -58,7 +58,7 @@ export default {
   // border-style: solid;
   // border-color: darkgrey;
   // padding: 20px;
-  max-width: 1800px;
+  max-width: 1900px;
 }
 .center {
   margin-left: auto;

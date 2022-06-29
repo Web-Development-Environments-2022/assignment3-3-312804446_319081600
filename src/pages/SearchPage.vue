@@ -194,13 +194,13 @@ export default {
         this.search_url_ = await this.url_Search();
         this.searchClicked = true;
         this.$root.store.last_search(this.search_url_);
-        console.log(this.search_url_)
+        // console.log(this.search_url_)
         
 
         // moves to login rout right after registration 
         // console.log(response);
       } catch (err) {
-        // console.log(err.response);
+        console.log(err.response);
         // this.form.submitError = err.response.data.message;
       }
       // console.log("register method called");

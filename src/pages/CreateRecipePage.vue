@@ -61,7 +61,8 @@
         </b-form-group>
         </b-col>
         <b-col>
-        <p><b>ingredients that you added:</b>
+        <p><b>ingredients that you already added:</b>
+        <br/>
         {{this.display_ingredients}}
         </p>
         </b-col>
@@ -88,7 +89,7 @@
     </b-form-checkbox>                  
     <b-row>
 
-      <b-col lg="3" class="pb-2"><b-button pill type="reset" style="background-color: #5D6166;border-color: #5D6166;font-weight: bold;color: #080807;" class="btn-warning">Cancel</b-button></b-col>
+      <b-col lg="3" class="pb-2"><b-button pill style="background-color: #5D6166;border-color: #5D6166;font-weight: bold;color: #080807;" class="btn-warning" type="reset">Reset</b-button></b-col>
       <b-col lg="3" class="pb-2"><b-button pill type="submit" style="background-color: #F19CBB;border-color: #F19CBB;width:350%;font-weight: bold;color: #080807;" class="btn-primary">Create</b-button></b-col>
               
     </b-row>
@@ -124,11 +125,11 @@ export default {
   methods: {
     async Create() {
       try {
-        console.log("chack")
+        // console.log("chack")
         const user_id = await this.axios.get(
           this.$root.store.server_domain + "/users/userid"
         );
-        console.log(user_id.data)
+        // console.log(user_id.data)
         const response = await this.axios.post(
           // "https://test-for-3-2.herokuapp.com/user/Register",
           this.$root.store.server_domain + "/users/CreateRecipe",
@@ -148,7 +149,7 @@ export default {
           ingredients: this.ingredients
         }
         );
-        console.log(response)
+        // console.log(response)
 
         await this.onResetCreate();
         this.$refs['my-modal'].hide()
@@ -198,13 +199,14 @@ export default {
         "amount": this.form2.amount
         }    
       this.ingredients.push(obj);
-      console.log(this.form2.ingredient + ":" + this.form2.amount)
+      // console.log(this.form2.ingredient + ":" + this.form2.amount)
       this.display_ingredients = this.display_ingredients + this.form2.ingredient + ":" + this.form2.amount + ", "
       // this.display_ingredients.push(this.form2.ingredient + ":" + this.form2.amount)
       // const myJSON = JSON.stringify(this.ingredients);
       // document.getElementById("ing") = myJSON
       this.reset_ingredient();
-      console.log(obj);}
+      // console.log(obj);
+      }
     },
     reset_ingredient(){
       this.form2={

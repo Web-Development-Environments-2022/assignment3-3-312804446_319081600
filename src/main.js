@@ -39,6 +39,7 @@ import {
   ListGroupPlugin,
 
 
+
 } from "bootstrap-vue";
 [
   FormGroupPlugin,
@@ -55,7 +56,10 @@ import {
   FormCheckboxPlugin,
   ModalPlugin,
   FormTextareaPlugin,
-  ListGroupPlugin
+  ListGroupPlugin,
+
+
+  
 
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);

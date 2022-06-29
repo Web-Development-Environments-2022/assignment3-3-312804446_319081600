@@ -41,7 +41,7 @@
         <router-link tag="b-dropdown-item" to="/users/favorites"
           ><b>Favorites</b></router-link>     
         <router-link tag="b-dropdown-item" to="/users/MyRecipes"
-          ><b>My Recupes</b></router-link>
+          ><b>My Recipes</b></router-link>
         <router-link tag="b-dropdown-item" to="/users/familyRecipes"
           ><b>My Family's Recipes</b></router-link>
       </b-nav-item-dropdown>

@@ -76,7 +76,7 @@ export default {
               this.instructions = this.instructions + ste.step
             }
           }
-        console.log(response);
+        // console.log(response);
         this.recipe= response.data;
         this.recipe_id= response.data.id;    
         //add to last watch table
@@ -87,14 +87,14 @@ export default {
             recipe_id: this.recipe_id,
           }
           );
-          console.log(response)
+          // console.log(response)
         }    
         }
         else{
           // console.log("else:")
           const response = await this.axios.get(
           this.$root.store.server_domain + "/users/FullRecipeDetailsDB/" + split_recipe_id)
-          console.log(response);
+          // console.log(response);
 
           this.recipe= response.data[0];
           this.instructions = response.data[0].instructions;
