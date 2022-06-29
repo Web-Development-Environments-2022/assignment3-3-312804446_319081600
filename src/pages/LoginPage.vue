@@ -3,6 +3,8 @@
     <br/>
     <br/>
     <h1 class="big-title text-center">Login</h1>
+    <br/>
+    <br/>
     <b-form @submit.prevent="onLogin">
       <b-form-group
         id="input-group-Username"

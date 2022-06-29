@@ -3,6 +3,8 @@
     <br/>
     <br/>
     <h1 class="big-title text-center">Register</h1>
+    <br/>
+    <br/>
     <b-form @submit.prevent="onRegister" @reset.prevent="onReset">
       
       <!-- user name -->
