@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <b-button v-b-modal.modal-1>Create Model</b-button>
-    <!-- <b-button id="show-btn" @click="$bvModal.show('modal-1')">Open Modal</b-button> -->
+  <div>  
+    <!-- <b-navbar-item id="create-button"><b>New recipe</b></b-navbar-item>  -->
+    <!-- <b-button  v-b-modal.modal-1 id="button-create" ><b>New recipe</b></b-button> -->
     <b-modal id="modal-1" ref="my-modal" title="Create Recipe" hide-footer>
     <b-form @submit.prevent="onCreate" @reset.prevent="onResetCreate" >
         <b-form-group>
@@ -45,29 +45,38 @@
         </b-form-group>
 
         <b-form>
+        <b-row>
+          <b-col>
         <b-form-group>
-        <b-form-input v-model="form2.ingredient" type="text" required placeholder="Enter ingredient"></b-form-input>
+        <b-form-input v-model="form2.ingredient" style="width:220px;" type="text" required placeholder="Enter ingredient"></b-form-input>
         </b-form-group>
 
         <b-form-group>
-        <b-form-input v-model="form2.amount" type="number" required placeholder="Enter amount"></b-form-input>
+        <b-form-input v-model="form2.amount" style="width:220px;" type="number" required placeholder="Enter amount"></b-form-input>
         </b-form-group>
 
-        <button @click="add_ingredient">ADD</button>
-        <p>ingredients:
+        <b-form-group>
+          <button @click="add_ingredient">ADD</button>
+
+        </b-form-group>
+        </b-col>
+        <b-col>
+        <p><b>ingredients that you added:</b>
         {{this.display_ingredients}}
         </p>
+        </b-col>
+        </b-row>
         </b-form>
 
-
-        <b-form-textarea
-        id="textarea"
-        v-model="form.insrtaction"
-        placeholder="Enter insrtaction of recipe..."
-        rows="4"
-        required
-        ></b-form-textarea>
-    
+        <b-form-group>
+          <b-form-textarea
+          id="textarea"
+          v-model="form.insrtaction"
+          placeholder="Enter insrtaction of recipe..."
+          rows="4"
+          required
+          ></b-form-textarea>
+        </b-form-group>
     <b-form-checkbox v-model="form.checked_gluten" name="check-button1" switch>
         gluten free 
     </b-form-checkbox>       
@@ -208,5 +217,10 @@ export default {
 </script>
 
 <style>
-
+.button-create{
+  color:#FAEBD7;
+}
+.button-create:hover{
+  color:#9aaeb6;
+}
 </style>

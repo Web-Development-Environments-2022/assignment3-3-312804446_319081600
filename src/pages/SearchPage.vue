@@ -4,7 +4,7 @@
     <b-form @submit.prevent="onSearch" @reset.prevent="onReset">
       <b-form-group
         id="input-group-query"
-        label-cols-sm="3"
+        label-cols-sm="2"
         label="query:"
         label-for="query"
         class="search-field"
@@ -15,83 +15,84 @@
           type="text"
         ></b-form-input>
       </b-form-group>
+      <b-row align-h="around">
+        <b-col cols="4" md="4">
+          <b-form-group
+            id="input-group-cuisine"
+            label-cols-sm="3"
+            label="cuisine:"
+            label-for="cuisine"
+            class="search-field">
+            <b-form-select
+              id="cuisine"
+              v-model="form.cuisine"
+              :options="cuisines"
+            ></b-form-select>
+          </b-form-group>
+        </b-col>
+        <b-col cols="4" md="4">
+          <b-form-group
+          id="input-group-diet"
+          label-cols-sm="2"
+          label="diet:"
+          label-for="diet"
+          class="search-field" >
+          <b-form-select
+            id="diet"
+            v-model="form.diet"
+            :options="diet"
+            class="search-field"
+          ></b-form-select>
+        </b-form-group>
+        </b-col>
+        <b-col cols="10" md="4" >
+          <b-form-group
+          id="input-group-intolerances"
+          label-cols-sm="4"
+          label="intolerances:"
+          label-for="intolerances"
+          class="search-field" >
+          <b-form-select
+            id="intolerances"
+            v-model="form.intolerances"
+            :options="intolerances"
+          ></b-form-select>
+        </b-form-group>
+      </b-col>
+    </b-row> 
 
-      <b-form-group
-        id="input-group-cuisine"
-        label-cols-sm="3"
-        label="cuisine:"
-        label-for="cuisine"
-        class="search-field"
-
-      >
-        <b-form-select
-          id="cuisine"
-          v-model="form.cuisine"
-          :options="cuisines"
-        ></b-form-select>
-      </b-form-group>
-
-        <b-form-group
-        id="input-group-diet"
-        label-cols-sm="3"
-        label="diet:"
-        label-for="diet"
-        class="search-field"
-
-      >
-        <b-form-select
-          id="diet"
-          v-model="form.diet"
-          :options="diet"
-          class="search-field"
-
-        ></b-form-select>
-      </b-form-group>
-
-        <b-form-group
-        id="input-group-intolerances"
-        label-cols-sm="3"
-        label="intolerances:"
-        label-for="intolerances"
-        class="search-field"
-
-      >
-        <b-form-select
-          id="intolerances"
-          v-model="form.intolerances"
-          :options="intolerances"
-        ></b-form-select>
-      </b-form-group>
-
-    <b-col>
     <b-row class="sort-num">
-    <b-form-group label="number of results:" class="search-field" v-slot="{ ariaDescribedby }">
-      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="5">5</b-form-radio>
-      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="10">10</b-form-radio>
-      <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="15">15</b-form-radio>
-    </b-form-group>
-
-    <b-form-group label="sort results by:" class="search-field" v-slot="{ ariaDescribedby }">
-      <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="popularity">popularity</b-form-radio>
-      <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="time">time</b-form-radio>
-    </b-form-group>
-    </b-row>
-    </b-col>
-
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-col >
+      <b-form-group label="number of results:" class="search-field" v-slot="{ ariaDescribedby }">
+        <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="5">5</b-form-radio>
+        <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="10">10</b-form-radio>
+        <b-form-radio v-model="form.selected_num" :aria-describedby="ariaDescribedby" name="some-radios" value="15">15</b-form-radio>
+      </b-form-group>
+      </b-col>
+      <b-col>
+        <b-form-group label="sort results by:" class="search-field" v-slot="{ ariaDescribedby }">
+          <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="popularity">popularity</b-form-radio>
+          <b-form-radio v-model="form.selected_sort" :aria-describedby="ariaDescribedby" name="some-radios2" value="time">time</b-form-radio>
+        </b-form-group>
+     </b-col>  
       <!-- <b-button @click="Register" -->
-      <b-button
-        type="submit"
-        variant="primary"
-        style="width:250px;"
-        class="ml-5 w-75"
-        >search</b-button
-      >
+      <b-col cols="2" md="5">
+        <b-button
+          id="button-search"
+          pill type="submit"
+          style="width:350px;margin: 50px 0px"
+          squared variant="primary"
+          >search</b-button >
+      </b-col>      
+      <b-col  cols="2" md="2">
+        <b-button id="button-reset" pill type="reset" squared variant="danger" style="width:100px;margin: 50px 0px" >Reset</b-button>
+        </b-col >
+      </b-row>
     </b-form>
     <b-alert
       class="mt-2"
       v-if="form.submitError"
-      variant="warning"
+      squared variant="primary"
       dismissible
       show
     >
@@ -247,8 +248,8 @@ export default {
 <style lang="scss" scoped>
 
 .sort-num{
-  max-width: 500px;
-  border-radius: 25px;
+  max-width: 900px;
+  border-radius: 45px;
 }
 .container {
 
@@ -258,7 +259,7 @@ export default {
   // border-style: solid;
   // border-color: darkgrey;
   // padding: 20px;
-  max-width: 500px;
+  max-width: 900px;
 }
 
 .title {
@@ -268,6 +269,12 @@ export default {
 .title {
   font-weight: bolder;
   color: #2f4f4f;
+}
+.button-reset{
+  color: #2f4f4f;
+}
+.button-search{
+  color: #F19CBB;
 }
 .search-field {
   color: black;

@@ -1,15 +1,14 @@
 
 
-
 <template>
   <!-- <b-navbar type="dark" variant="info" class="nav-bar"> -->
-  <b-navbar  type="dark" variant="dark" class="nav">    
-    <router-link tag="b-navbar-brand" style="color:#FAEBD7" :to="{ name: 'main' }"
+    <VueScrollFixedNavbar>
+  <b-navbar toggleable="lg"  class="nav-bar">    
+    <router-link tag="b-navbar-brand" :to="{ name: 'main' }"
      
-      >    <img src="https://res.cloudinary.com/dfgjujaok/image/upload/c_scale,h_40/v1594843880/logo3_aqd4ac.jpg">
+      >    <img src="https://res.cloudinary.com/dqwbwwfui/image/upload/v1656438855/samples/logo1_kswuhs.png">
       <!-- <b>Vue Recipes</b> -->
-    </router-link
-    >
+    </router-link>
     <!-- Home -->
     <b-navbar-nav>
       <router-link tag="b-nav-item" :to="{ name: 'main' }"><b>Home</b></router-link>
@@ -19,8 +18,7 @@
     <b-navbar-nav>
       <router-link tag="b-nav-item" :to="{ name: 'search' }"
         ><b>Search</b>
-      </router-link
-      >
+      </router-link >
     </b-navbar-nav>
 
     <!-- About -->
@@ -32,44 +30,45 @@
 
     <!-- Registred user  -->
     <b-navbar-nav v-if="$root.store.username">  
+          <b-navbar-nav>
+        <!-- <CreateRecipePage/> -->
+        <router-link v-b-modal.modal-1 id="modal-1" tag="b-nav-item" to="/users/CreateRecipe"
+          ><b>New Recipes</b></router-link>
+      </b-navbar-nav>
+      
       <!-- dropdown Myreciprs : Favorites,Private,Family -->
       <b-nav-item-dropdown text="more" class="bold-option">
         <!-- <div v-if="this.$root.store.username"> -->
         <router-link tag="b-dropdown-item" to="/users/favorites"
-          ><b>Favorites</b></router-link
-        >     
+          ><b>Favorites</b></router-link>     
         <router-link tag="b-dropdown-item" to="/users/MyRecipes"
-          ><b>My Recupes</b></router-link
-        >
+          ><b>My Recupes</b></router-link>
         <router-link tag="b-dropdown-item" to="/users/familyRecipes"
-          ><b>My Family's Recipes</b></router-link
-        >
+          ><b>My Family's Recipes</b></router-link>
       </b-nav-item-dropdown>
-      <CreateRecipePage/>
+
     </b-navbar-nav>
 
     <!-- dropdown Hello guest: Login & Register -->
     <b-navbar-nav class="ml-auto">
       <b-nav-item-dropdown class="bold-option" 
         v-if="!$root.store.username"
-        right text="Hello guest" 
-      >
+        right text="Hello guest" >
         <router-link tag="b-dropdown-item" :to="{ name: 'register' }"
-          ><b>Register</b></router-link
-        >
+          ><b>Register</b></router-link>
         <router-link tag="b-dropdown-item" :to="{ name: 'login' }"
-          ><b>Login</b></router-link
-        >
+          ><b>Login</b></router-link>
       </b-nav-item-dropdown>
 
       <!-- Logout -->
       <span v-else>
          <b-nav-item>
-          Hello {{ $root.store.username }}:<button @click="Logout" class="button"><b>Logout</b></button>
+          Hello {{ $root.store.username }}:<button @click="Logout" id="button"><b>Logout</b></button>
          </b-nav-item>
       </span>
     </b-navbar-nav>
   </b-navbar>
+  </VueScrollFixedNavbar>
 </template>
 
 
@@ -78,7 +77,7 @@ import CreateRecipePage from '../pages/CreateRecipePage.vue';
 export default {
   name: "NavBar",
   components: {
-    CreateRecipePage
+    // CreateRecipePage
   },
   data() {
     return {
@@ -116,15 +115,18 @@ export default {
 
 <style>
 .nav-bar{
-font-family:"Comic Sans MS", cursive, sans-serif;
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  /* color:#FAEBD7 */
+  background-color: #F19CBB!important;
+  height:50px ;
+
+
 }
+.nav-bar.navbar-dark.bg-dark{
+    background-color: #AABB55!important;
+ }
+
 .bold-option{
   font-weight: bolder;
-}
-.button{
-  color:#FAEBD7;
-}
-.button:hover{
-  color:#9aaeb6;
 }
 </style>

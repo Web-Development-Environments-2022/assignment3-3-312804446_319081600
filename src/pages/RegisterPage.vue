@@ -167,13 +167,14 @@
         </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button type="reset" pill variant="danger">Reset</b-button>
       <!-- <b-button @click="Register" -->
       <b-button
-        type="submit"
-        variant="primary"
+        pill type="submit"
+        
         style="width:250px;"
-        class="ml-5 w-75"
+        class="btn-warning"
+        
         >Register</b-button
       >
       <div class="mt-2">
@@ -184,7 +185,7 @@
     <b-alert
       class="mt-2"
       v-if="form.submitError"
-      variant="warning"
+      pill variant="warning"
       dismissible
       show
     >
@@ -341,6 +342,13 @@ export default {
 .title {
   font-weight: bolder;
   color: #2f4f4f;
+}
+.btn-warning{
+  background-color: #F19CBB;
+  border-color: #F19CBB;
+  font-weight: bold;
+  color: #f8e1c7;
+
 }
 .register-field {
   color: black;
