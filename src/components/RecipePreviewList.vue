@@ -9,12 +9,14 @@
     </h1>
     </center>
    <center>
+ 
+    <h1  v-if="no_recipe">
     <br/>
     <br/>
     <br/>
     <br/>
     <br/>
-    <h1  v-if="no_recipe">There Are No {{ title }}</h1>
+    There Are No {{ title }}</h1>
     </center>
     <center>
     <b-row v-for="r in recipes" :key="r.id">

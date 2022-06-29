@@ -5,7 +5,7 @@
     class="recipe-preview"
   >
  <div class="recipe-body">
-      <b-card no-body class="overflow-hidden" style="max-width: 800px; width:800px; margin: 10px;">
+      <b-card no-body class="overflow-hidden" style="max-width: 700px; width:700px; margin: 10px;">
         <b-row no-gutters>
           <b-col md="6">
             <b-card-img :src= "recipe.image" alt="Image" class="rounded-0"></b-card-img>

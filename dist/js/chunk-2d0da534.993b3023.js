@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0da534"],{"6ab5":function(e,t,s){"use strict";s.r(t);var i=function(){var e=this,t=e.$createElement,s=e._self._c||t;return s("div",{staticClass:"container"},[s("RecipePreviewList",{staticClass:"FavoriteRecipes center",attrs:{route_name:"/users/favorites",title:"Favorite Recipes"}})],1)},a=[],n=s("99d8"),r={name:"favorites",components:{RecipePreviewList:n["a"]}},c=r,o=s("2877"),l=Object(o["a"])(c,i,a,!1,null,null,null);t["default"]=l.exports}}]);
-//# sourceMappingURL=chunk-2d0da534.f9ff01f5.js.map
+//# sourceMappingURL=chunk-2d0da534.993b3023.js.map

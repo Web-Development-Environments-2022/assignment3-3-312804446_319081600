@@ -36,7 +36,7 @@
       <br/>
       <a href="https://web-development-environments-2022.github.io/319081600/">Liel's site</a>
       <br/>
-      <a href="https://github.com/Web-Development-Environments-2022/312804446">Keren's site</a>
+      <a href="https://web-development-environments-2022.github.io/312804446/">Keren's site</a>
       <br/>
       <br/>
       <br/>
