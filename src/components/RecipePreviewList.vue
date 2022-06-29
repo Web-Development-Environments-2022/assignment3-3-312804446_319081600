@@ -1,12 +1,26 @@
 <template>
   <b-container>
-    <h3>
-      {{ title }}:
+    <br/>
+    <br/>
+    <center>
+      <h1 class="title text-center" style="  color: #2f4f4f; font-weight: bolder;">
+        {{ title }}:
       <slot></slot>
-    </h3>
+    </h1>
+    </center>
+   <center>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h1  v-if="no_recipe">There Are No {{ title }}</h1>
+    </center>
+    <center>
     <b-row v-for="r in recipes" :key="r.id">
-        <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name"/>
+      <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name" style="margin-left:150px;"/>
     </b-row>
+     </center>
   </b-container>
 </template>
 
@@ -29,7 +43,8 @@ export default {
   },
   data() {
     return {
-      recipes: []
+      recipes: [],
+      no_recipe: false
     };
   },
   mounted() {
@@ -43,7 +58,10 @@ export default {
           // {withCredentials: true}
           // "https://test-for-3-2.herokuapp.com/recipes/random"
         );
-
+        // console.log(response);
+        if(response.data.length === 0) {
+          this.no_recipe = true;
+        }
         // console.log(response);
         const recipes = response.data;
         this.recipes = [];

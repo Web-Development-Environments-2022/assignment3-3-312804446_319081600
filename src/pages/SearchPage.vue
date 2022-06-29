@@ -99,11 +99,11 @@
       Search failed: {{ form.submitError }}
     </b-alert>
     
-    <RecipePreviewList v-if="searchClicked" v-bind:route_name="search_url_" title="Search Results" class="SearchResults center" />
     <!-- <RecipePreviewList v-else="$!root.store.username && searchClicked " route_name="/guest{{search_url}}" title="Search Results" class="SearchResults center" /> -->
 <!-- v-if="$root.store.username && searchClicked" -->
  <!-- v-bind:class="{ route_name: search_url_ }" -->
  <!-- v-if="searchClicked"  -->
+    <RecipePreviewList v-if="searchClicked" v-bind:route_name="search_url_" title="Search Results" class="SearchResults center" />
 
   </div>
 </template>

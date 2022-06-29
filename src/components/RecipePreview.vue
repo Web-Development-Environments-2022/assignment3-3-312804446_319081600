@@ -1,60 +1,41 @@
 <template>
-  <router-link
+ <center>
+ <router-link
     :to="{ name: 'recipe', params: { recipeId: recipe.id, route_name: route_name} }"
     class="recipe-preview"
   >
-
-  <div class="recipe-body">
-      <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+ <div class="recipe-body">
+      <b-card no-body class="overflow-hidden" style="max-width: 800px; width:800px; margin: 10px;">
         <b-row no-gutters>
           <b-col md="6">
             <b-card-img :src= "recipe.image" alt="Image" class="rounded-0"></b-card-img>
           </b-col>
-          <b-col md="6">
-            <b-card-body :title= "recipe.title">
-              <b-card-text>
-                <b-list-group >
-                  <dt> Ready in {{ recipe.readyInMinutes }} minutes</dt>
-                  <dt>  {{ recipe.aggregateLikes }} likes</dt>
-                </b-list-group>
-                <!-- <input
-                    v-show="recipe.vegetarian"
-                    type="image"
-                    style=" margin: 0px 5px;"
-                    src="https://icon-library.com/images/vegan-icon/vegan-icon-13.jpg"
-                  />
-                  <input
-                  v-show="!recipe.vegetarian"
-                  type="image"
-                  style=" margin: 0px 5px;"
-                  src="https://icon-library.com/images/vegan-icon/vegan-icon-13.jpg"
-                /> -->
-                  <ul class="recipe-overview">
-                    <li>{{ recipe.vegan }} vagen</li>
-                    <li>{{ recipe.vegetarian }} vageterian</li>
-                    <li>{{ recipe.glutenFree }} Gluten Free</li>
-
-                      
-                  </ul>
-              </b-card-text>
-            </b-card-body>
+          <b-col class="recipePreviewDetails" md="6">
+              <b-card-text class="recipePreviewDetailsText">
+                <b-card-body :title= "recipe.title" >
+                  <b-list-group >
+                    <dt>{{ recipe.readyInMinutes }} minutes to prepare</dt>
+                    <dt>{{ recipe.servings }} servings</dt>
+                    <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 25px"/> this recipe</dt>
+                    <dt v-if="recipe.vegan"><img src="../assets/vegan.png" style="width: 30px"/>   Vegan</dt>
+                    <dt v-if="recipe.vegetarian"><img src="../assets/vegetarian.png" style="width: 30px"/> Vegeterian</dt>
+                    <dt v-if="recipe.glutenFree"><img src="../assets/gluten-free.png" style="width: 25px"/> Gluten Free</dt>
+                  </b-list-group>
+                </b-card-body>
+            </b-card-text>
           </b-col>
         </b-row>
       </b-card>
     </div>
   </router-link>
+  </center>
 </template>
 
 <script>
 export default {
-  // mounted() {
-  //   this.axios.get(this.recipe.image).then((i) => {
-  //     this.image_load = true;
-  //   });
-  // },
+
   data() {
     return {
-      // image_load: false
     };
   },
   props: {
@@ -62,11 +43,6 @@ export default {
       type: Object,
       required: true
     },
-
-    // id: {
-    //   type: Number,
-    //   required: true
-    // },
     title: {
       type: String,
       required: true
@@ -75,13 +51,18 @@ export default {
       type: String,
       required: true
     },
-    
   }
 };
 </script>
 
 <style scoped>
-.recipe-preview {
+.recipePreviewDetails{
+  background-color: rgb(251, 248, 157);
+}
+.recipePreviewDetailsText{
+  color: black;
+}
+/* .recipe-preview {
   display: inline-block;
   width: 90%;
   height: 100%;
@@ -154,5 +135,5 @@ export default {
   width: 90px;
   display: table-cell;
   text-align: center;
-}
+} */
 </style>
