@@ -1,11 +1,13 @@
 <template>
   <b-container>
-    <br/>
-    <br/>
     <center>
-      <h3 class="big-title text-center" >
+    <h3 class="big-title text-center" >
         {{ title }}
+      
       <slot></slot>
+      <br/>
+      <br/>
+      <br/>
     </h3>
     </center>
    <center>
@@ -19,9 +21,10 @@
     There Are No {{ title }}</h1>
     </center>
     <center>
-    <b-row v-for="r in recipes" :key="r.id">
-      <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name" style="margin-left:150px;"/>
-    </b-row>
+    <b-col v-for="r in recipes" :key="r.id">
+      <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name" style="margin-left:205px;"/>
+      
+    </b-col>
      </center>
   </b-container>
 </template>
@@ -79,14 +82,42 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  min-height: 400px;
+  min-height: 80px;
 }
-
 
 .big-title{
   font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 48px;
-  color:#F25360;
-  font-weight: bolder;
+    position: absolute;
+    // top: 5%; 
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-transform: uppercase;
+    // font-family: verdana;
+    font-size: 2em;
+    font-weight: 100;
+    color: #F25360;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #F25360,
+        1px 3px 1px #F25360,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        // 1px 8px 1px #919191,
+        // 1px 9px 1px #919191,
+        // 1px 10px 1px #919191,
+    1px 18px 6px rgba(16,16,16,0.4),
+    1px 22px 10px rgba(16,16,16,0.2),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
 }
+
+
+
+// {
+//   font-family:Georgia, 'Times New Roman', Times, serif;
+//   font-size: 48px;
+//   color:#F25360;
+//   font-weight: bolder;
+// }
 </style>

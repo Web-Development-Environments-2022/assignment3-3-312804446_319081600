@@ -1,6 +1,12 @@
 <template>
     <div class="container">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <RecipePreviewList route_name="/users/familyRecipes" title="Family Recipes" class="FamilyRecipes center" />
+      <br/>
+      <br/>
   </div>
 </template>
 

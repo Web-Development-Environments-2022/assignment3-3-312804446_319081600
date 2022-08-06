@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <br/>
-    <br/>
+    <div id="welcome" align="center" justify="center"><img src="..\assets\welcome2.png" width="800" height="400" /></div>
     <b-row>
       <b-col  class="RandomRecipesCol">
         <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
       </b-col>
       <b-col  >
         <!-- this is the false above ths title of last viewed -->
-        <RecipePreviewList route_name="/users/lastWatched" title="Last Viewed Recipes" class="LastViewedRecipes center"
+        <RecipePreviewList route_name="/users/lastWatched" title="The last recipes you viewed" class="LastViewedRecipes center"
           :class="{
             // RandomRecipes: true,
             blur: !$root.store.username,
@@ -21,7 +20,7 @@
             border-color: #F19CBB;
             font-weight: bold;
             color: #080807;
-            margin: 15px 50px 50px 200px;">Please log in to get the latest recipes you watched</b-button>
+            margin: 15px 50px 50px 200px;">Click to log in and see the last recipes you viewed</b-button>
 <!--   style="padding: 15px 15px;
          background-color: #F19CBB;
          border-color: #F19CBB;

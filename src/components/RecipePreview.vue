@@ -1,14 +1,40 @@
 <template>
- <center>
  <router-link
-    :to="{ name: 'recipe', params: { recipeId: recipe.id, route_name: route_name} }"
-    class="recipe-preview"
+    :to="{ name: 'recipe', params: { recipeId: recipe.id, route_name: route_name} }" class="recipe-preview">
+  
+<div>
+  <b-card 
+    pill
+    class="recipePreviewDetails" 
+    border-variant="warning"
+    :title= "recipe.title"
+    :img-src="recipe.image"
+    img-alt="Image"
+    img-top
+    tag="article"
+    style="max-width: 30rem;"
   >
+    <b-card-text class="recipePreviewDetailsText">
+      <b-list-group >
+        <dt>{{ recipe.readyInMinutes }} minutes to prepare</dt>
+        <dt>{{ recipe.servings }} servings</dt>
+        <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 22px"/> this recipe</dt>
+        <dt v-if="recipe.vegan"><img src="../assets/vegan.png" style="width: 30px"/>   Vegan</dt>
+        <dt v-if="recipe.vegetarian"><img src="../assets/vegetarian.png" style="width: 30px"/> Vegeterian</dt>
+        <dt v-if="recipe.glutenFree"><img src="../assets/gluten-free.png" style="width: 25px"/> Gluten Free</dt>
+      </b-list-group>
+    </b-card-text>
+  </b-card>
+</div>
+</router-link>
+ <!-- <center>
+ <router-link
+    :to="{ name: 'recipe', params: { recipeId: recipe.id, route_name: route_name} }" class="recipe-preview">
  <div class="recipe-body">
-      <b-card no-body class="overflow-hidden" style="max-width: 700px; width:700px; margin: 10px;">
+      <b-card no-body class="overflow-hidden" style="max-width: 700px; width:700px; margin: 10px;" border-variant="light" tag="article" img-top>
         <b-row no-gutters>
           <b-col md="6">
-            <b-card-img :src= "recipe.image" alt="Image" class="rounded-0"></b-card-img>
+            <b-card-img :src= "recipe.image" alt="Image" class="rounded-0" img-top></b-card-img>
           </b-col>
           <b-col class="recipePreviewDetails" md="6">
               <b-card-text class="recipePreviewDetailsText">
@@ -16,7 +42,7 @@
                   <b-list-group >
                     <dt>{{ recipe.readyInMinutes }} minutes to prepare</dt>
                     <dt>{{ recipe.servings }} servings</dt>
-                    <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 25px"/> this recipe</dt>
+                    <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 22px"/> this recipe</dt>
                     <dt v-if="recipe.vegan"><img src="../assets/vegan.png" style="width: 30px"/>   Vegan</dt>
                     <dt v-if="recipe.vegetarian"><img src="../assets/vegetarian.png" style="width: 30px"/> Vegeterian</dt>
                     <dt v-if="recipe.glutenFree"><img src="../assets/gluten-free.png" style="width: 25px"/> Gluten Free</dt>
@@ -28,7 +54,7 @@
       </b-card>
     </div>
   </router-link>
-  </center>
+  </center> -->
 </template>
 
 <script>
@@ -57,10 +83,14 @@ export default {
 
 <style scoped>
 .recipePreviewDetails{
-  background-color: rgb(251, 248, 157);
+  
+  background-color: #C4FAF8;
+  border-radius:30px;
+  /* background-color: rgb(251, 248, 157); */
 }
 .recipePreviewDetailsText{
   color: black;
+  
 }
 /* .recipe-preview {
   display: inline-block;

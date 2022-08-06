@@ -7,7 +7,7 @@
         {{ recipe.title }}
       </div>
       <br/>
-      <div class="recipe-body">
+      <div pill class="recipe-body">
           <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
           <img :src="recipe.image" class="recipe-image" />
       </div>

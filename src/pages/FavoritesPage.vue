@@ -1,6 +1,12 @@
 <template>
     <div class="container">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <RecipePreviewList route_name="/users/favorites" title="Favorite Recipes" class="FavoriteRecipes center" />
+      <br/>
+      <br/>
   </div>
 </template>
 
