@@ -104,7 +104,14 @@
 <!-- v-if="$root.store.username && searchClicked" -->
  <!-- v-bind:class="{ route_name: search_url_ }" -->
  <!-- v-if="searchClicked"  -->
+    <br/>
+    <br/>   
+    <br/>
+    <br/>
+    <br/>
     <RecipePreviewList v-if="searchClicked" v-bind:route_name="search_url_" title="Search Results" class="SearchResults center" />
+    <br/>
+    <br/>
 
   </div>
 </template>

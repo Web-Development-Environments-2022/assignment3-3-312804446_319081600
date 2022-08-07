@@ -11,7 +11,7 @@
     img-alt="Image"
     img-top
     tag="article"
-    style="max-width: 30rem;"
+    style="max-width: 33rem;"
   >
     <b-card-text class="recipePreviewDetailsText">
       <b-list-group >
