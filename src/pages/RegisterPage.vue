@@ -30,7 +30,7 @@
           Username length should be between 3-8 characters long
         </b-form-invalid-feedback>
         <b-form-invalid-feedback v-if="!$v.form.username.alpha">
-          Username alpha
+          Username must be alphabetical
         </b-form-invalid-feedback>
       </b-form-group>
     <!-- firstName -->
@@ -51,9 +51,12 @@
         <b-form-invalid-feedback v-if="!$v.form.firstName.required">
           firstName is required
         </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-if="!$v.form.firstName.alpha">
+          firstName must be alphabetical
+        </b-form-invalid-feedback>
       </b-form-group>   
 
-      <!-- firstName -->
+      <!-- lastNam -->
       <b-form-group
         id="input-group-firstName"
         label-cols-sm="3"
@@ -70,6 +73,9 @@
         ></b-form-input>
         <b-form-invalid-feedback v-if="!$v.form.lastName.required">
           lastName is required
+        </b-form-invalid-feedback>
+        <b-form-invalid-feedback v-if="!$v.form.lastName.alpha">
+          lastName must be alphabetical
         </b-form-invalid-feedback>
       </b-form-group>  
 
@@ -136,12 +142,13 @@
           Password is required
         </b-form-invalid-feedback>
         <b-form-text v-else-if="$v.form.password.$error" text-variant="info">
-          Your password should be <strong>strong</strong>. <br />
-          For that, your password should be also:
+         
         </b-form-text>
         <b-form-invalid-feedback
-          v-if="$v.form.password.required && !$v.form.password.length && !$v.form.password.specialChar && !$v.form.password.digit"
+          v-if="$v.form.password.required || !$v.form.password.length || !$v.form.password.specialChar || !$v.form.password.digit"
         >
+          Your password should be <strong style="color:blue">strong</strong>. <br />
+          For that, your password should be also: <br />
           Have length between 5-10 characters long and least one special character
         </b-form-invalid-feedback>
       </b-form-group>
@@ -236,9 +243,11 @@ export default {
       },
       firstName: {
         required,
+        alpha
       },
       lastName:{
-        required
+        required,
+        alpha
       },
       email:{
         required,
