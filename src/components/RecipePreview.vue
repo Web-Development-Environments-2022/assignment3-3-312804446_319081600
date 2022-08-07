@@ -6,7 +6,6 @@
   <b-card 
     pill
     class="recipePreviewDetails" 
-    border-variant="warning"
     :title= "recipe.title"
     :img-src="recipe.image"
     img-alt="Image"
