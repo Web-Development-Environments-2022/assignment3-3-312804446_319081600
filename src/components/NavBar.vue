@@ -11,39 +11,39 @@
     </router-link>
     <!-- Home -->
     <b-navbar-nav>
-      <router-link tag="b-nav-item" :to="{ name: 'main' }"><b>Home</b></router-link>
+      <router-link tag="b-nav-item" :to="{ name: 'main' }"><b style="color: black">Home</b></router-link>
     </b-navbar-nav>
 
     <!-- Search -->
     <b-navbar-nav>
       <router-link tag="b-nav-item" :to="{ name: 'search' }"
-        ><b>Search</b>
+        ><b style="color: black">Search</b>
       </router-link >
     </b-navbar-nav>
 
     <!-- About -->
     <b-navbar-nav>
       <router-link tag="b-nav-item" to="/About"
-        ><b>About</b></router-link>
+        ><b style="color: black">About</b></router-link>
     </b-navbar-nav>
 
     <!-- Registred user  -->
     <b-navbar-nav v-if="$root.store.username">  
-          <b-navbar-nav>
+      <b-navbar-nav>
         <!-- <CreateRecipePage/> -->
-        <router-link v-b-modal.modal-1 id="modal-1" tag="b-nav-item" to="/users/CreateRecipe"
-          ><b>New Recipes</b></router-link>
+        <b-nav-item v-b-modal.modal-1 id="modal-1" tag="b-nav-item" @click="showModal"
+          ><b style="color: black">Create Recipe</b></b-nav-item>
+          <CreateRecipePage v-if="createRecipeClicked"></CreateRecipePage>
       </b-navbar-nav>
       
-      <!-- dropdown Myreciprs : Favorites,Private,Family -->
-      <b-nav-item-dropdown text="more" class="bold-option">
-        <!-- <div v-if="this.$root.store.username"> -->
+      <!-- dropdown Myrecipes : Favorites,Private,Family -->
+      <b-nav-item-dropdown  toggle-class="text-dark" text="more" class="bold-option">
         <router-link tag="b-dropdown-item" to="/users/favorites"
-          ><b>Favorites</b></router-link>     
+          ><b style="color: black">Favorites</b></router-link>     
         <router-link tag="b-dropdown-item" to="/users/MyRecipes"
-          ><b>My Recipes</b></router-link>
+          ><b style="color: black">My Recipes</b></router-link>
         <router-link tag="b-dropdown-item" to="/users/familyRecipes"
-          ><b>My Family's Recipes</b></router-link>
+          ><b style="color: black">My Family's Recipes</b></router-link>
       </b-nav-item-dropdown>
 
     </b-navbar-nav>
@@ -52,11 +52,11 @@
     <b-navbar-nav class="ml-auto">
       <b-nav-item-dropdown class="bold-option" 
         v-if="!$root.store.username"
-        right text="Hello guest" >
+        right  toggle-class="text-dark" text="Hello guest" style="color:black ;">
         <router-link tag="b-dropdown-item" :to="{ name: 'register' }"
-          ><b>Register</b></router-link>
+          ><b style="color:black ;">Register</b></router-link>
         <router-link tag="b-dropdown-item" :to="{ name: 'login' }"
-          ><b>Login</b></router-link>
+          ><b style="color:black ;">Login</b></router-link>
       </b-nav-item-dropdown>
 
       <!-- Logout -->
@@ -64,9 +64,9 @@
          <b-nav-item>
          <b-row> 
           <b-col>
-            <b-navbar-item><h3>Hello {{ $root.store.username }}   </h3></b-navbar-item>  
+            <b-navbar-item><h3 style="color:black ;">Hello {{ $root.store.username }}   </h3></b-navbar-item>  
          </b-col> 
-         <router-link v-b-modal.modal-1 id="modal-1" tag="b-nav-item" to="/" @click.native="Logout()" ><b>Logout</b></router-link></b-row>
+         <router-link v-b-modal.modal-1 id="modal-1" tag="b-nav-item" to="/" @click.native="Logout()" ><b style="color:black ;">Logout</b></router-link></b-row>
           <!-- <button @click="Logout" id="button"><b>Logout</b></button> -->
          </b-nav-item>
       </span>
@@ -81,29 +81,17 @@ import CreateRecipePage from '../pages/CreateRecipePage.vue';
 export default {
   name: "NavBar",
   components: {
-    // CreateRecipePage
+    CreateRecipePage
   },
   data() {
     return {
-      // form: {
-      //   recipename: '',
-      //   servings: '',
-      //   readyInMinutes:'',
-      //   image:'',
-      //   checked_gluten: false,
-      //   checked_vegetarian: false,
-      //   checked_vegan: false,
-      //   insrtaction:'',
-
-      //   },
-      // form2: {
-      //   ingredient:'',
-      //   amount:''
-      // },
-      //   ingredients:[],
-      //   display_ingredients:""
+      createRecipeClicked: false,
       }
+
     },
+  mounted() {
+    this.createRecipeClicked = false;
+  },
   methods: {
     Logout() {
       this.$root.store.logout();
@@ -113,6 +101,9 @@ export default {
       });
     },
 
+  showModal(){
+      this.createRecipeClicked = true
+    }
   },
 };
 </script>
@@ -132,5 +123,6 @@ export default {
 
 .bold-option{
   font-weight: bolder;
+  font-style: black;
 }
 </style>

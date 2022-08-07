@@ -148,8 +148,7 @@
           v-if="$v.form.password.required || !$v.form.password.length || !$v.form.password.specialChar || !$v.form.password.digit"
         >
           Your password should be <strong style="color:blue">strong</strong>. <br />
-          For that, your password should be also: <br />
-          Have length between 5-10 characters long and least one special character
+          For that, your password should have length between 5-10 characters long and least one special character
         </b-form-invalid-feedback>
       </b-form-group>
 

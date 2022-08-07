@@ -1,8 +1,6 @@
 <template>
   <div>  
-    <!-- <b-navbar-item id="create-button"><b>New recipe</b></b-navbar-item>  -->
-    <!-- <b-button  v-b-modal.modal-1 id="button-create" ><b>New recipe</b></b-button> -->
-    <b-modal id="modal-1" ref="my-modal" title="Create Recipe" hide-footer>
+    <b-modal id="modal-1"  ref="my-modal" title="Create New Recipe" hide-footer>
     <b-form @submit.prevent="onCreate" @reset.prevent="onResetCreate" >
         <b-form-group>
         <b-form-input
@@ -44,29 +42,29 @@
         ></b-form-input>
         </b-form-group>
 
-        <b-form>
-        <b-row>
+        <b-form @submit.prevent="add_ingredient">
+          <b-row>
+            <b-col>
+          <b-form-group>
+          <b-form-input v-model="form2.ingredient" style="width:220px;" type="text"  placeholder="Enter ingredient" required></b-form-input>
+          </b-form-group>
+
+          <b-form-group>
+          <b-form-input v-model="form2.amount" style="width:220px;" type="number"  placeholder="Enter amount" required ></b-form-input>
+          </b-form-group>
+
+          <b-form-group>
+            <b-button class="btn-info" pill type="submit" style="background-color: #F2975B;border-color: #F2975B;font-weight: bold;color: #080807;" @click="add_ingredient">ADD</b-button>
+
+          </b-form-group>
+          </b-col>
           <b-col>
-        <b-form-group>
-        <b-form-input v-model="form2.ingredient" style="width:220px;" type="text" required placeholder="Enter ingredient"></b-form-input>
-        </b-form-group>
-
-        <b-form-group>
-        <b-form-input v-model="form2.amount" style="width:220px;" type="number" required placeholder="Enter amount"></b-form-input>
-        </b-form-group>
-
-        <b-form-group>
-          <b-button class="btn-info" pill style="background-color: #F2975B;border-color: #F2975B;font-weight: bold;color: #080807;" @click="add_ingredient">ADD</b-button>
-
-        </b-form-group>
-        </b-col>
-        <b-col>
-        <p><b>ingredients that you already added:</b>
-        <br/>
-        {{this.display_ingredients}}
-        </p>
-        </b-col>
-        </b-row>
+          <p><b>ingredients that you already added:</b>
+          <br/>
+          {{this.display_ingredients}}
+          </p>
+          </b-col>
+          </b-row>
         </b-form>
 
         <b-form-group>
@@ -197,7 +195,8 @@ export default {
         let obj = {
         "name": this.form2.ingredient,
         "amount": this.form2.amount
-        }    
+        }   
+       
       this.ingredients.push(obj);
       // console.log(this.form2.ingredient + ":" + this.form2.amount)
       this.display_ingredients = this.display_ingredients + this.form2.ingredient + ":" + this.form2.amount + ", "
@@ -206,6 +205,8 @@ export default {
       // document.getElementById("ing") = myJSON
       this.reset_ingredient();
       // console.log(obj);
+      }
+      else{
       }
     },
     reset_ingredient(){

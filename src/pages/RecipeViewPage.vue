@@ -3,9 +3,9 @@
       <br/>
       <br/>
     <div class="recipe-footer">
-      <div :title="recipe.title" class="recipe-title" style="text-decoration-line: underline;">
+      <h4 id="big-title" :title="recipe.title" class="recipe-title">
         {{ recipe.title }}
-      </div>
+      </h4>
       <br/>
       <div pill class="recipe-body">
           <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
@@ -24,19 +24,19 @@
           <dt v-if="recipe.is_watched"><img src="../assets/check.png" style="width: 25px"/>   Viewed Recipe</dt>
           <br/>
          <center>
-             <b-button v-if="API_route" id="favoritesButton" size="sm" @click="AddToFavorites" class="btn-warning w-15 h-20"> add to favorites</b-button>
+             <b-button pill v-if="API_route" id="favoritesButton" size="sm" @click="AddToFavorites" class="btn-warning w-15 h-20"> add to favorites</b-button>
           </center>
         </b-list-group >
         <!-- extendedIngredients -->
          <br/>
-        <h3 id="IngredientsTitle">Ingredients</h3> <br/>
+        <h5 id="IngredientsTitle">Ingredients</h5> <br/>
         <center>
         <div v-for="ing in recipe.extendedIngredients" :key="ing.name">
           {{ing.amount }} {{ing.name }}
         </div>
           </center>
         <br/>
-        <div id="instructions" > <h3 id="InstructionsTitle">Instructions</h3> <br/>
+        <div id="instructions" > <h5 id="InstructionsTitle">Instructions</h5> <br/>
            {{ instructions }}</div>
       </ul>
   </div>
@@ -133,24 +133,25 @@ export default {
   font-size: 20px;
 }
 #InstructionsTitle{
+ font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
   font-weight: bolder;
-  color: #2f4f4f;
-  text-decoration-line: underline;
 }
 #IngredientsTitle{
-   font-weight: bolder;
-  color: #2f4f4f;
-  text-decoration-line: underline;
+font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+  font-weight: bolder;
 }
  #instructions{
   max-width: 800px; 
   width:800px; 
  }
 .btn-warning{
-  background-color: #F19CBB;
-  border-color: #F19CBB;
-  font-weight: bold;
- color: #f8e1c7;
+   background-color: #F19CBB;
+   border-color: #F19CBB;
+   width:200px;font-weight: bold;color: #080807;
 }
  .recipe-footer{
 background: #F19CBB;
@@ -161,4 +162,12 @@ background: linear-gradient(135deg, #F19CBB 0%, #F9CB95 53%, #F19CBB 100%);
   width:1000px; 
   padding: 1em;
  }
+#big-title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  color:#F25360;
+  font-weight: bolder;
+}
+
+
 </style>
