@@ -11,7 +11,7 @@ ____________________________________________
 
 ## Linke to preview Repositories
 
-- [Back-end Server]([https://github.com/Web-Development-Environments-2022/assignment2-319081600_312804446.git](https://github.com/Web-Development-Environments-2022/assignment3_2-312804446_319081600.git))
+- [Back-end Server]([https://github.com/Web-Development-Environments-2022/assignment2-319081600_312804446.git](https://github.com/Web-Development-Environments-2022/assignment3_2-312804446_319081600.git)
 - [API](https://app.swaggerhub.com/apis/lielbin1/API/1.0.0#/)
 
 ---
