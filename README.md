@@ -9,7 +9,7 @@ The recipes web for you
 ____________________________________________
 
 
-## Linke to preview Repositories
+## Link to preview Repositories
 
 - [Back-end Server](https://github.com/Web-Development-Environments-2022/assignment3_2-312804446_319081600.git)
 - [API](https://app.swaggerhub.com/apis/lielbin1/API/1.0.0#/)
