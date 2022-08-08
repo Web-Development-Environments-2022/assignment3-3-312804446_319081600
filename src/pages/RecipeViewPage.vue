@@ -135,15 +135,17 @@ export default {
   font-size: 20px;
 }
 #InstructionsTitle{
- font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#F25360; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
   font-size: 48px;
-  color:#F25360;
   font-weight: bolder;
 }
 #IngredientsTitle{
-font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#F25360; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
   font-size: 48px;
-  color:#F25360;
   font-weight: bolder;
 }
  #instructions{
@@ -165,9 +167,10 @@ background: linear-gradient(135deg, #F19CBB 0%, #F9CB95 53%, #F19CBB 100%);
   padding: 1em;
  }
 #big-title{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#F25360; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
   font-size: 48px;
-  color:#F25360;
   font-weight: bolder;
 }
 
