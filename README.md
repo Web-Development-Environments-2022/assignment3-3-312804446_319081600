@@ -37,7 +37,7 @@ In the project directory, you can run:
 ### `npm run serve`
 
 To run the app in the development mode<br>
-click here:  [http://localhost:80810](http://localhost:8081) to view it in the browser.<br>
+click here:  [http://localhost:8080](http://localhost:8081) to view it in the browser.<br>
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
@@ -74,7 +74,7 @@ Your app is ready to be deployed!
 
 - Full view of a recipe:
 
-<img src="https://ik.imagekit.io/falq0519u/recipeWeb/Instructions_7nqDTU-0O.png?ik-sdk-version=javascript-1.4.3&updatedAt=16599850877195" />
+<img src="https://ik.imagekit.io/falq0519u/recipeWeb/Instructions_pFzZlgU8w.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659986847223" />
 </p>
 
 
