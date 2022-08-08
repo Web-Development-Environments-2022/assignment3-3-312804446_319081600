@@ -10,9 +10,6 @@
     <h1  v-if="no_recipe">
     <br/>
     <br/>
-    <br/>
-    <br/>
-    <br/>
     There Are No {{ title }}</h1>
     </center>
     <center>
@@ -80,10 +77,14 @@ export default {
 }
 
 .big-title{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#F25360; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
+  // font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 48px;
-  color:#F25360;
-  font-weight: bolder;
+  // color:#F25360;
+  // font-weight: bolder;
 }
 
 </style>

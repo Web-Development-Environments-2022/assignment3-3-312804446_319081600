@@ -30,14 +30,16 @@
         <!-- extendedIngredients -->
          <br/>
         <h5 id="IngredientsTitle">Ingredients</h5> <br/>
+        <b-col>
         <center>
         <div v-for="ing in recipe.extendedIngredients" :key="ing.name">
           {{ing.amount }} {{ing.name }}
         </div>
-          </center>
+        </center>
         <br/>
         <div id="instructions" > <h5 id="InstructionsTitle">Instructions</h5> <br/>
            {{ instructions }}</div>
+           </b-col>
       </ul>
   </div>
   </center>

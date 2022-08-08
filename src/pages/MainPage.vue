@@ -21,11 +21,6 @@
             font-weight: bold;
             color: #080807;
             margin: 15px 50px 50px 200px;">Click to log in and see the last viewed recipes </b-button>
-<!--   style="padding: 15px 15px;
-         background-color: #F19CBB;
-         border-color: #F19CBB;
-         width:90%;font-weight: 
-         bold;color: #080807;" -->
       </b-col>
     </b-row>
   </div>

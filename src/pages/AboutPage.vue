@@ -63,14 +63,18 @@ export default {
   max-width: 850px;
 }
 .title{
-  color:#F2975B;
-  font-weight: bolder;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#be9c68; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
+  /* font-size: 30px; */
+  /* color:#F2975B;
+  font-weight: bolder; */
 
 }
 .big-title{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color:#F25360; 
+  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
   font-size: 48px;
-  color:#F25360;
-  font-weight: bolder;
 }
 </style>
