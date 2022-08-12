@@ -14,8 +14,8 @@
       <br/>
       <ul class="recipe-overview">
         <b-list-group >
-          <dt>{{ recipe.readyInMinutes }} minutes to prepare</dt>
-          <dt>{{ recipe.servings }} servings</dt>
+          <dt><img src="../assets/clock.png" style="width: 30px"/>     {{ recipe.readyInMinutes }} minutes to prepare</dt>
+          <dt><img src="../assets/servings.png" style="width: 30px"/>   {{ recipe.servings }} servings</dt>
           <dt>{{ recipe.aggregateLikes }} <img src="../assets/like.png" style="width: 30px"/> this recipe</dt>
           <dt v-if="recipe.vegan"><img src="../assets/vegan.png" style="width: 30px"/>   Vegan</dt>
           <dt v-if="recipe.vegetarian"><img src="../assets/vegetarian.png" style="width: 30px"/> Vegeterian</dt>
@@ -64,9 +64,10 @@ export default {
     async updateRecipes() {
 
       try {
-        // console.log(this.$route.path)
         let split_route = (((this.$route.path).split("/")[2]).split("%2F"))[2]
         let split_recipe_id = ((this.$route.path).split("/"))[4]
+                console.log(split_route)
+
          if(split_route == "lastWatched" || split_route =="random" || split_route =="favorites" || split_route =="search"){
           this.API_route = true;
           const response = await this.axios.get(
@@ -99,6 +100,10 @@ export default {
           // console.log(response);
 
           this.recipe= response.data[0];
+          if(split_route=="familyRecipes"){
+            console.log(this.recipe.title.replace('family-',''))
+            this.recipe.title = this.recipe.title.replace('family-','')
+          }
           this.instructions = response.data[0].instructions;
           this.recipe_id= response.data[0].id;
         }

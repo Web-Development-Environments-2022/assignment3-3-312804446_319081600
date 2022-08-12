@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div id="welcome" align="center" justify="center"><img src="..\assets\welcome2.png" width="1000" height="500" /></div>
+    <div id="welcome" align="center" justify="center"><img src="..\assets\welcome2.png" width="1000" height="600" /></div>
     <b-row>
       <b-col  class="RandomRecipesCol">
         <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
