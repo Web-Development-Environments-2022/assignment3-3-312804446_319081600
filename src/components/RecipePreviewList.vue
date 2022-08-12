@@ -8,10 +8,10 @@
     </center>
    <center>
     <h1  v-if="no_recipe">
-    <br/>
-    <br/>
-    There Are No {{ title }}</h1>
-    </center>
+      <br/>
+      <br/>
+      There Are No {{ title }}</h1>
+      </center>
     <center>
     <b-col v-for="r in recipes" :key="r.id">
       <RecipePreview class="recipePreview" :recipe="r" :title="title" :route_name="route_name" style="margin-left:205px;"/>
@@ -51,18 +51,13 @@ export default {
       try {
         const response = await this.axios.get(
           this.$root.store.server_domain + this.route_name,
-          // {withCredentials: true}
-          // "https://test-for-3-2.herokuapp.com/recipes/random"
         );
-        // console.log(response);
         if(response.data.length === 0) {
           this.no_recipe = true;
         }
-        // console.log(response);
         const recipes = response.data;
         this.recipes = [];
         this.recipes.push(...recipes);
-        // console.log(this.recipes);
       } catch (error) {
         console.log(error);
       }
