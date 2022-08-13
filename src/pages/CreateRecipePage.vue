@@ -224,9 +224,5 @@ export default {
 </script>
 
 <style>
-.title{
-   font-family: "Comic Sans MS", cursive, sans-serif;
-   color:#faebd7; 
-   text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
-}
+
 </style>
