@@ -20,7 +20,7 @@
             border-color: #F19CBB;
             font-weight: bold;
             color: #080807;
-            margin: 15px 50px 50px 200px;">Click to log in and see the last viewed recipes </b-button>
+            margin: 15px 50px 50px 100px;">Click to log in and see the last viewed recipes </b-button>
       </b-col>
     </b-row>
   </div>
