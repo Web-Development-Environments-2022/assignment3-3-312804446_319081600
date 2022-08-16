@@ -3,7 +3,7 @@
 The recipes web for you
 
 
-<img src="https://ik.imagekit.io/falq0519u/recipeWeb/MainPage_LvPO0_f_U.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659987210530"   />
+<img src="https://ik.imagekit.io/falq0519u/recipeWeb/MainPage_xxuMTKfxs.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660672855099"   />
 
 
 ____________________________________________
@@ -66,7 +66,7 @@ Your app is ready to be deployed!
 
 - My Recipes: (from Local DB)
 
-<img src="https://ik.imagekit.io/falq0519u/recipeWeb/MyRecipes_xJdy_PMUi.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659984940095" />
+<img src="https://ik.imagekit.io/falq0519u/recipeWeb/MyRecipes_udq2m0Omb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660672854985" />
 
 - Create a new recipe: (to Local DB)
 
@@ -74,7 +74,7 @@ Your app is ready to be deployed!
 
 - Full view of a recipe:
 
-<img src="https://ik.imagekit.io/falq0519u/recipeWeb/Instructions_pFzZlgU8w.png?ik-sdk-version=javascript-1.4.3&updatedAt=1659986847223" />
+<img src="https://ik.imagekit.io/falq0519u/recipeWeb/Instructions_nVBcwdCRZ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660672854984" />
 </p>
 
 
