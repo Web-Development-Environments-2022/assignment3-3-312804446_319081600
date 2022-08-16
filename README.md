@@ -67,6 +67,10 @@ Your app is ready to be deployed!
 - My Recipes: (from Local DB)
 
 <img src="https://ik.imagekit.io/falq0519u/recipeWeb/MyRecipes_udq2m0Omb.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660672854985" />
+ 
+ - Family recipes:
+
+<img src="https://ik.imagekit.io/falq0519u/recipeWeb/familyRecipes_6_G7Gwm58.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660674005583" />
 
 - Create a new recipe: (to Local DB)
 
@@ -76,6 +80,8 @@ Your app is ready to be deployed!
 
 <img src="https://ik.imagekit.io/falq0519u/recipeWeb/Instructions_nVBcwdCRZ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1660672854984" />
 </p>
+
+
 
 
 
