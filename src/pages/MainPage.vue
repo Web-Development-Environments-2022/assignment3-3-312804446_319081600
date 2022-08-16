@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div id="welcome" align="center" justify="center"><img src="..\assets\welcome2.png"  /></div>
+    <div id="welcome" align="center" justify="center"><img src="..\assets\welcome2.png" width = "900" height = "150" /></div>
     <b-row>
       <b-col  class="RandomRecipesCol">
         <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
@@ -60,7 +60,7 @@ export default {
   cursor: default;
 }
 img {
-  border-radius: 1px;
+  // border-radius: 1px;
 }
 .title{
   color:#F2975B;
