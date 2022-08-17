@@ -64,8 +64,9 @@ export default {
 }
 .title{
   font-family: "Comic Sans MS", cursive, sans-serif;
-  color:#be9c68; 
-  text-shadow: -1px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
+  /* color:#be9c68;  */
+  color:#0d9488; 
+  text-shadow: 1px 0 black, 0 3px black, 1px 0 black, 0 1px black;
   /* font-size: 30px; */
   /* color:#F2975B;
   font-weight: bolder; */

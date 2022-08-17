@@ -8,6 +8,8 @@
     class="recipePreviewDetails" 
     :img-src="recipe.image"
     img-alt="Image"
+    img-height="400"
+    img-width="100"
     img-top
     tag="article"
     style="max-width: 33rem;"

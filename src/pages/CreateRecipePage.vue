@@ -54,7 +54,7 @@
           </b-form-group>
 
           <b-form-group>
-            <b-button class="btn-info" pill type="submit" style="background-color: #F2975B;border-color: #F2975B;font-weight: bold;color: #080807;" @click="add_ingredient">ADD</b-button>
+            <b-button class="btn-info" pill type="submit" style="background-color: #0d9488;border-color: #0d9488;font-weight: bold;color: #080807;" @click="add_ingredient">ADD</b-button>
 
           </b-form-group>
           </b-col>
@@ -131,6 +131,7 @@ export default {
           this.$root.store.server_domain + "/users/userid"
         );
         // console.log(user_id.data)
+        console.log(this.ingredients)
         const response = await this.axios.post(
           // "https://test-for-3-2.herokuapp.com/user/Register",
           this.$root.store.server_domain + "/users/CreateRecipe",
