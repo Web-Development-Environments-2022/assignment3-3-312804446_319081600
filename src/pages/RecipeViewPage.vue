@@ -9,7 +9,7 @@
       <br/>
       <div pill class="recipe-body">
           <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
-          <img :src="recipe.image" style="height:400px; width:100px;" class="recipe-image" />
+          <img :src="recipe.image" style="height:500px; width:600px;" class="recipe-image" />
       </div>
       <br/>
       <ul class="recipe-overview">
@@ -120,6 +120,8 @@ export default {
             recipe_id: this.recipe_id
           }
         );
+        window.location.reload();
+
     }
   }
 };

@@ -170,7 +170,9 @@ export default {
       else{
         this.$root.toast("error", "there is no ingredients", "error");
       }
-      
+      onResetCreate()
+      window.location.reload();
+
     },
     async onResetCreate(){
      
