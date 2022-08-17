@@ -95,8 +95,8 @@ const shared_data = {
   username: localStorage.username,
   // user_
   search_url_: localStorage.search_url_,
-  server_domain: "http://localhost:3000",
-  // server_domain: "https://recipesweblielkeren.cs.bgu.ac.il",
+  // server_domain: "http://localhost:3000",
+  server_domain: "https://recipesweblielkeren.cs.bgu.ac.il",
   login(username) {
     localStorage.setItem("username", username);
     this.username = username;

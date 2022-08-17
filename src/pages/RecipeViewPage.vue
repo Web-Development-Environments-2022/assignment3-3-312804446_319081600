@@ -9,7 +9,7 @@
       <br/>
       <div pill class="recipe-body">
           <!-- <img v-if="image_load" :src="recipe.image" class="recipe-image" /> -->
-          <img :src="recipe.image" style="height=400; width=100;" class="recipe-image" />
+          <img :src="recipe.image" style="height:400px; width:100px;" class="recipe-image" />
       </div>
       <br/>
       <ul class="recipe-overview">
