@@ -61,6 +61,21 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    async updateRandomRecipes() {
+      try {
+        const response = await this.axios.get(
+          this.$root.store.server_domain + "/recipes/random",
+        );
+        if(response.data.length === 0) {
+          this.no_recipe = true;
+        }
+        const recipes = response.data;
+        this.recipes = [];
+        this.recipes.push(...recipes);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };

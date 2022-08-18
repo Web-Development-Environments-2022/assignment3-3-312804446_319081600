@@ -4,6 +4,16 @@
     <b-row>
       <b-col  class="RandomRecipesCol">
         <RecipePreviewList route_name="/recipes/random" title="Random Recipes" class="RandomRecipes center" />
+        <b-button tag="button" pill @click="new_random_recipes"
+          style="
+          width:65%;
+          padding: 15px 15px;
+          background-color: #F19CBB;
+          border-color: #F19CBB;
+          font-weight: bold;
+          color: #080807;
+          margin: 15px 50px 50px 100px;"> New Random Recipes 
+        </b-button>
       </b-col>
       <b-col  >
         <!-- this is the false above ths title of last viewed -->
@@ -33,7 +43,14 @@ export default {
   components: {
     RecipePreviewList,
    
-  }
+  },
+   methods: {
+    new_random_recipes(){
+      // this.$children.updateRandomRecipes()
+      window.location.reload();
+
+    }
+    }
 };
 </script>
 
